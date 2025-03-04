@@ -1,0 +1,47 @@
+/* src/BrowserWindow.css */
+.browser-window {
+    width: 400px;
+    height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #4E4987;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #393562;
+}
+
+/* Tab Bar*/
+.browser-top-bar {
+    display: flex;
+    background-color: #4E4987;
+    padding: 5px;
+    border-bottom: 2px solid #393562;
+}
+
+/* Tab Buttons */
+.tab-button {
+    flex: 1;
+    background-color: #BBB2D6;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.tab-button:hover {
+    background-color: #DBE798;
+}
+
+.tab-button.active {
+    background-color: #FEF4C3;
+    font-weight: bold;
+}
+
+  /* Main Content Area */
+.browser-content {
+    padding: 15px;
+    font-size: 14px;
+    color: #D0E7DF;
+}

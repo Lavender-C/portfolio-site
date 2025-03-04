@@ -1,0 +1,34 @@
+/* global colors*/
+:root {
+    --primary: #BBB2D6;
+    --secondary: #4E4987;
+    --background: #393562;
+    --accent1: #FFF9CC;
+    --accent2: #D0E7DF;
+    --accent3: #93EDC2;
+}
+
+  /* Apply the colors globally */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+  /* Custom header styles */
+h1, .header-large {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+h2, .header-medium {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent3);
+}
+
+h3, .header-small {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
