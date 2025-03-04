@@ -18,6 +18,7 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 <details>
 
 <summary> <h3>3/4/25</h3>  </summary>
-Finally added all of the files I've been working on, very rough for the first upload but I just wanted to get the ball rolling. This is the mockup I am working off of:
+Finally added all of the files I've been working on, very rough for the first upload but I just wanted to get the ball rolling. This is the mockup I'm working off of:
+
 ![alt text](https://github.com/Lavender-C/portfolio-site/main/mockups/mainscreen_D1.png "Image of the first draft of the mockup")
 </details>
