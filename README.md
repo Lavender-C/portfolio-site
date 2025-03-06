@@ -8,8 +8,9 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 
 <i>High Priority</i>
 - [ ] Fix the main content window so its bigger and anchored to the bottom
-- [ ] Add text to the rest of the tabs
-- [ ] Organize buttons/links on profile window
+- [ ] Add text to the rest of the Browser window tabs
+- [x] Organize buttons/links on profile window
+- [x] Fix resume PDF button
 
 
 <i>Future Plans</i>
@@ -30,4 +31,16 @@ Finally added all of the files I've been working on, very rough for the first up
 - I like the general layout and the color palette but I'm not sure I like the way they are implemented on the site elements, like the yellow on the profile window is pretty hard to read. I will probably try a few different combinations as I build it in JS
 - The draggable profile window works pretty good!
 - I want each page in the browser window to imitate a different type of webpage. I think I want the 'experience' page to be like a forum post (the circles would be profile images) but it looks kind of cluttered right now. I think if I change the font sizes and maybe make the titles a different font and/or color it might help the readability. We shall see!
+</details>
+
+<details>
+
+<summary> <h3>3/5/25</h3>  </summary>
+
+- Fixed the resume button, it was messed up and only downloading a HTML page but now its working and with a lot less lines
+- Changed the layout of the content on the profile window so its neater. Also the links go to the proper sites.
+- I changed the colors slightly, still not sold on the colors, I think the contrast is too low but I still like how it looks.
+
+Mostly minor changes but its coming along.
+
 </details>
