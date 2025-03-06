@@ -1,17 +1,18 @@
 /* global colors*/
 :root {
     --primary: #BBB2D6;
-    --secondary: #4E4987;
+    --secondary: #EFE8FF;
     --background: #393562;
     --accent1: #FFF9CC;
-    --accent2: #D0E7DF;
-    --accent3: #93EDC2;
+    --accent2: #DDFBD2;
+    --accent3: #BCEDF6;
+    --accent4: ;
 }
 
   /* Apply the colors globally */
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-size: small;
+    color: var(--accent2);
 }
 
   /* Custom header styles */
@@ -22,13 +23,25 @@ h1, .header-large {
 }
 
 h2, .header-medium {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    color: var(--accent3);
+    color: var(--background);
 }
 
 h3, .header-small {
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--background);
+}
+
+a, .link {
+    font-size: 14px;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--accent1);
+    text-decoration: none;
+}
+
+a:hover, .link {
+    color: var(--accent3)
 }

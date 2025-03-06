@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './ProfileWindow.css';
+import "./global.css"; 
+import resume from './resume_F25.pdf'
 
 const ProfileWindow = () => {
     const elementRef = useRef(null);
@@ -38,21 +40,6 @@ const ProfileWindow = () => {
             topBar.removeEventListener('mousedown', mouseDownHandler);
         };
     }, []);
-
-    //fix
-    const onButtonClick = () => {
-        fetch("/public/resume_F25.pdf").then((Response) => {
-            Response.blob().then((blob) => {
-                const fileURL =
-                    window.URL.createObjectURL(blob);
-                
-                    let alink = document.createElement("a");
-                    alink.href = fileURL;
-                    alink.download = "CalhounResume.pdf";
-                    alink.click();
-            });
-        });
-    };
     
     return (
         <div ref={elementRef} className="profile-window">
@@ -66,16 +53,22 @@ const ProfileWindow = () => {
                 <div className='image-container'>
                     <img src="persona headshot.png" alt="Circular" className='circular-image'/>
                 </div>
-                <h3>
-                Lavender Calhoun
-                </h3>
-                <br />
-                Detroit, MI
-                <br />
-                linkedin 313-564-9485 e-mail
+                <div className='profile-info'>
+                    <h2> <i>Lavender Calhoun </i></h2>
+                    <h3> Computer Science Grad</h3>
+                </div>
+
+                {/* contact links */}
+
+                <div>
+                    <a href="https://www.linkedin.com/in/lavender-calhoun/">linkedin</a>&emsp;
+                    <a href="mailto:lmcalhoun01@gmail.com">email</a>&emsp;
+                    <a href="https://github.com/Lavender-C">github</a> 
+                </div>
+                
                 {/* resume buttton */}
                 <br />
-                <button className = "resume-button" onClick={onButtonClick}>resume</button>
+                <a href={resume}> <button className = "resume-button">resume</button> </a>
             </div>
         </div>
     );

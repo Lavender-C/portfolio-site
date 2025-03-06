@@ -1,13 +1,15 @@
 .profile-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    min-height: 375px;
     position: absolute;
-    top: 100px;
-    left: 100px;
     width: 300px;
-    background-color: #BBB2D6;
-    border-radius: 5px;
+    background-color: var(--primary);
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 9999;
-    color: rgb(32, 25, 50);
     overflow: hidden;
 }
 
@@ -15,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(64, 40, 112);
+    background-color: var(--background);
     padding: 5px 10px;
     cursor: move;
     color: white;
@@ -34,7 +36,6 @@
     height: 100%;
 }
 
-
 .close {
     display: inline-block;
     width: 5px;
@@ -44,17 +45,22 @@
     font-size: 16px;
     cursor: pointer;
 }
-
+.profile-info {
+    margin-bottom: 30px;
+}
 .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
     padding: 20px;
-    font-size: 16px;
+    line-height: 15px;
 }
 
 .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .circular-image {
@@ -67,17 +73,19 @@
 /* Buttons */
 
 .resume-button {
+
+    font-family:'Space Mono';
+    font-weight: bold;
     background-color: #FEF4C3;
     color: #242520;
     border: none;
     padding: 8px 12px;
-    margin-top: 10px;
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.resume-button.hover {
-    background-color:aqua;
+.resume-button:hover {
+    background-color: var(--accent3);
 }
