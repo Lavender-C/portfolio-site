@@ -1,0 +1,66 @@
+.experience-post {
+    display: flex;
+    align-items: flex-start;
+    background: rgba(17, 16, 67, 0.391);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.post-content {
+    flex: 1;
+    text-align: left;
+}
+
+.post-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--accent2);
+    margin: 0;
+}
+
+.post-subtitle {
+    font-size: 14px;
+    color: var(--accent3);
+    margin: 2px 0;
+}
+
+.post-body {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.like-button {
+    background: var(--primary);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: transform 0.1s ease-in-out, background 0.3s;
+}
+
+.like-button:hover {
+    background: var(--accent3);
+}
+
+.like-button.liked {
+    transform: scale(1.2);
+    background: #ffb4aa;
+    color: white;
+}
+
+.like-button.unliked {
+    transform: scale(0.8);
+    background: #414141;
+    color: white;
+}
