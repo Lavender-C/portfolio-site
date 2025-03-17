@@ -47,6 +47,8 @@ Mostly minor changes but its coming along.
 
 </details>
 
+<details>
+
 <summary> <h3>3/17/25</h3>  </summary>
 
 I uploaded all the edits I've made since the last update, but I am trying to go feature by feature and I just did a lot with the browser window stuff.
