@@ -7,20 +7,30 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 ### TODO:
 
 <i>High Priority</i>
-- [x] Fix the main content window so its bigger and anchored to the bottom
-- [ ] Add text to the rest of the Browser window tabs
+- [x] Fix the main content window so its bigger
 - [x] Organize buttons/links on profile window
 - [x] Fix resume PDF button
-- [ ] Add a taskbar w/ buttons to minimize the browser and profile windows
-- [ ] add a title/search bar to make the browser window look more like a browser
+- [x] taskbar w/ buttons to minimize the browser and profile windows
+- [ ] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
+- [ ] title+search bar to the browser window
+- [ ] header and other decorations to the experience "website"
+- [ ] command prompt program for the education
+- [ ] animations for opening/closing windows and menus
 - [ ] cool desktop background
+- [ ] start working on phone view
+
+<i>Up Next</i>
+- Photo Gallery for projects
+- draw icons
+- cute boot screen
+- unit tests
+- where are we hosting?
 
 
-<i>Future Plans</i>
-- [ ] Animation for PFP that follows the mouse
-- [ ] Transitions for looking at different tabs and programs
-- [ ] Phone view (how to handle profile window?)
-- [ ] Find a hosting site
+<i>Extra Juicy Bits</i>
+- Animation for PFP that follows the mouse (only on computers?)
+- parallax on the desktop background?
+
 
 <details>
 
@@ -56,5 +66,17 @@ I uploaded all the edits I've made since the last update, but I am trying to go 
 I saw another SWE on TikTok (@jjrangzx) who made basically the exact same idea for a fake desktop portfolio site which was kind of demoralizing (😭) but I will not be discouraged! It just means I have to really make it my own. Also I've been sittin
 
 I am going to take some inspiration from her; I think I kind of want to split up some of the stuff in the browser window. For now I'm gonna keep the things as they are while I work on other parts of the desktop. Immediately I think it would be cool to have a console/commandline app for the intro where the text comes up automatically Matrix style. I have to think on the education part a bit more.
+
+</details>
+
+<details>
+  
+<summary> <h3>3/22/25</h3>  </summary>
+
+I took inspiration from the tiktok I watched and added a taskbar and some shortcuts to the page. I'm pretty pleased with how they look. Was having a couple issues with the way the divs in App.js were interacting but I think they are better organized now.
+
+![alt text](https://github.com/Lavender-C/portfolio-site/blob/main/mockups/site_v0.4.png "Image of the latest version of the website")
+Jumping off of that I don't fully know the best practices for formatting JS and CSS, it makes sense to me and everything seems pretty well organized for now but I think I will look for some "best practices" guides or something to see if it can be improved.
+I have the next week off work, I would like to have the site up and running by next Saturday. I think I have outlined everything I want to include, everything up to "Up Next" should be finished to be ready go live. I'll aim for that but I guess its not the end of the world if it doesn't happen.
 
 </details>
