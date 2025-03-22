@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './ProfileWindow.css';
 import "./global.css"; 
-import resume from './resume_F25.pdf'
+import pfp from '../public/persona headshot.png'
 
 const ProfileWindow = ({ onClose }) => {
     const elementRef = useRef(null);
@@ -52,7 +52,7 @@ const ProfileWindow = ({ onClose }) => {
             </div>
             <div className="content">
                 <div className='image-container'>
-                    <img src="persona headshot.png" alt="Circular" className='circular-image'/>
+                    <img src={pfp.src} alt="Circular" className='circular-image'/>
                 </div>
                 <div className='profile-info'>
                     <h2> <i>Lavender Calhoun </i></h2>
@@ -69,7 +69,7 @@ const ProfileWindow = ({ onClose }) => {
                 
                 {/* resume buttton */}
                 <br />
-                <a href={resume}> <button className = "resume-button">resume</button> </a>
+                <a href={'/resume_F25.pdf'}> <button className = "resume-button">resume</button> </a>
             </div>
         </div>
     );
