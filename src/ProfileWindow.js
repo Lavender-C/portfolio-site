@@ -3,7 +3,7 @@ import './ProfileWindow.css';
 import "./global.css"; 
 import resume from './resume_F25.pdf'
 
-const ProfileWindow = () => {
+const ProfileWindow = ({ onClose }) => {
     const elementRef = useRef(null);
     const topBarRef = useRef(null);
 
@@ -41,12 +41,13 @@ const ProfileWindow = () => {
         };
     }, []);
     
+    
     return (
         <div ref={elementRef} className="profile-window">
             <div ref={topBarRef} className="top-bar">
                 <span className="title">aboutme.exe</span>
                 <div className="icons">
-                    <span className="close">×</span>
+                    <span className="close" onClick={onClose}>×</span>
                 </div>
             </div>
             <div className="content">

@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.desktop {
+  background-color: #2a213b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,13 +21,91 @@
   }
 }
 
-.App-header {
-  background-color: #2a213b;
-  min-height: 100vh;
+.shortcuts {
+  top: 10px;
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 60px;
+  font-size: 14px;
+  text-align: center;
 }
+
+.shortcuts img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+/* Taskbar Stuff */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #1e1e2e;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.taskbar-menu button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  width: 60px;
+  border-top-left-radius: 5px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dropdown Menu */
+.menu-dropdown {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  background-color: #2a213b;
+  border: 1px solid #888;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  height: auto; /* Ensures they take only as much space as needed */
+  font-size: 14px;
+}
+
+.menu-dropdown button:hover {
+  background-color: #3a2f4b;
+}
+
+/* Open Programs in Taskbar */
+.taskbar-programs {
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.taskbar-item {
+  background-color: #3a2f4b;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+

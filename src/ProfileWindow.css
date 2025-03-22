@@ -1,4 +1,7 @@
 .profile-window {
+    position: absolute;
+    top: 50%;            /* Center vertically */
+    left: 50%;   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,12 +12,12 @@
     background-color: var(--primary);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
+    z-index: 900;
     overflow: hidden;
 }
 
 .top-bar {
-    display: flex;
+    display: flex;        /* Center horizontally */
     justify-content: space-between;
     align-items: center;
     background-color: var(--background);

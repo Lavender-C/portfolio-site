@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
 
-const BrowserWindow = () => {
+const BrowserWindow = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState("home");
 
   const posts = [
@@ -67,34 +67,35 @@ const BrowserWindow = () => {
     if (activeTab === "education") return <p>Here is my educational background...</p>;
   };
 
-  return (
-    <div className="browser-window">
-      {/* Top Navigation Bar */}
-      <div className="browser-top-bar">
-        <button 
-          className={`tab-button ${activeTab === "home" ? "active" : ""}`} 
-          onClick={() => setActiveTab("home")}
-        >
-          Home
-        </button>
-        <button 
-          className={`tab-button ${activeTab === "experience" ? "active" : ""}`} 
-          onClick={() => setActiveTab("experience")}
-        >
-          Experience
-        </button>
-        <button 
-          className={`tab-button ${activeTab === "education" ? "active" : ""}`} 
-          onClick={() => setActiveTab("education")}
-        >
-          Education
-        </button>
-      </div>
+    return (
+      <div className="browser-window">
+        {/* Top Navigation Bar */}
+        <div className="browser-top-bar">
+          <button 
+            className={`tab-button ${activeTab === "home" ? "active" : ""}`} 
+            onClick={() => setActiveTab("home")}
+          >
+            Home
+          </button>
+          <button 
+            className={`tab-button ${activeTab === "experience" ? "active" : ""}`} 
+            onClick={() => setActiveTab("experience")}
+          >
+            Experience
+          </button>
+          <button 
+            className={`tab-button ${activeTab === "education" ? "active" : ""}`} 
+            onClick={() => setActiveTab("education")}
+          >
+            Education
+          </button>
+          <span className="close" onClick={onClose}>×</span>
+        </div>
 
-      {/* Main Content */}
-      <div className="main-content">{renderContent()}</div>
-    </div>
-  );
+        {/* Main Content */}
+        <div className="main-content">{renderContent()}</div>
+      </div>
+    );
 };
 
 export default BrowserWindow;
