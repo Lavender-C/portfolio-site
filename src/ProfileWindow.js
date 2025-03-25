@@ -48,7 +48,7 @@ const ProfileWindow = ({ onClose }) => {
             <div ref={topBarRef} className="top-bar">
                 <span className="title">aboutme.exe</span>
                 <div className="icons">
-                    <span className="close" onClick={onClose}> <IconX size={12} stroke={5}/> </span>
+                    <span className="close" onClick={onClose}> <IconX size={12} stroke={4}/> </span>
                 </div>
             </div>
             <div className="content">

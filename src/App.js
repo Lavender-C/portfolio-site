@@ -32,18 +32,18 @@ const App = () => {
       {/*                                  SHORTCUTS                                 */}
       {/* -------------------------------------------------------------------------- */}
         <div className="shortcuts" onClick={() => setProfileOpen(true)}>
-          <img src="profile-pic.jpg" alt="Profile Icon" />
-          <span>aboutme.exe</span>
+          <img src="aboutme-icon.png" alt="Profile Icon" />
+          <span>Contact</span>
         </div>
 
         <div className="shortcuts" onClick={() => setBrowserOpen(true)}>
           <img src="profile-pic.jpg" alt="Browser Icon" />
-          <span>Internet</span>
+          <span>Experience</span>
         </div>
 
         <div className="shortcuts">
           <img src="profile-pic.jpg" alt="Command Line" />
-          <span>Console</span>
+          <span>Education</span>
         </div>
       </div>
 

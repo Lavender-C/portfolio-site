@@ -6,7 +6,7 @@
     --accent1: #FFF9CC;
     --accent2: #DDFBD2;
     --accent3: #BCEDF6;
-    --accent4: ;
+    --accent4: #ffcec6;
 }
 
   /* Apply the colors globally */
@@ -44,4 +44,52 @@ a, .link {
 
 a:hover, .link {
     color: var(--accent3)
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             TOP BAR FOR WINDOWS                            */
+/* -------------------------------------------------------------------------- */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+    min-height: 25px;
+    cursor: move;
+    color: white;
+    font-size: 12px;
+    border-radius: 15px 15px 0 0;
+}
+
+.title {
+    height: inherit;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+.icons {
+    position: absolute;
+    right: 0;
+    height: inherit;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 15px;
+    
+}
+
+.close {
+    transform: translateY(10%);
+    cursor: pointer;
+}
+
+.close:hover {
+    color: pink;
 }

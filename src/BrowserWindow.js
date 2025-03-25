@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
 
 const BrowserWindow = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState("home");
+
+  /* -------------------------------------------------------------------------- */
+  /*                                POST CONTENT                                */
+  /* -------------------------------------------------------------------------- */
 
   const posts = [
     {
@@ -50,11 +55,14 @@ const BrowserWindow = ({ onClose }) => {
     },
   ];
 
+  /* ------------------------------ Tab Switching ----------------------------- */
+
   const renderContent = () => {
     if (activeTab === "experience") {
       return (
         <div className="experience-section">
           <div className="scroll-container">
+          <div className="experience-header">Header Text</div>
             {posts.map((post) => (
               <ExperiencePost key={post.id} {...post} />
             ))}
@@ -64,13 +72,41 @@ const BrowserWindow = ({ onClose }) => {
     }
 
     if (activeTab === "home") return <p>Welcome to my site! This is the Home tab.</p>;
-    if (activeTab === "education") return <p>Here is my educational background...</p>;
   };
+
+  /* -------------------------------------------------------------------------- */
 
     return (
       <div className="browser-window">
         {/* Top Navigation Bar */}
-        <div className="browser-top-bar">
+        <div className="top-bar">
+                <span className="title">Browser</span>
+                <div className="icons" onClick={onClose}>
+                    <span className="close"> <IconX size={12} stroke={5}/> </span>
+                </div>
+        </div>
+
+        {/* ------------------------------- Search Bar ------------------------------- */}
+
+        <div className="search-bar">
+
+          <div>
+            <IconHomeFilled size={20}/>
+            <IconRefresh stroke={3}/>
+          </div>
+          
+          <div className="search-bubble"> Search... <IconSearch size={15} stroke={4} /> </div>
+
+          <div>
+            <IconArrowLeft />
+            <IconArrowRight />
+          </div>
+          
+        </div>
+
+        {/* ---------------------------------- Tabs ---------------------------------- */}
+
+        <div className="browser-tabbar">
           <button 
             className={`tab-button ${activeTab === "home" ? "active" : ""}`} 
             onClick={() => setActiveTab("home")}
@@ -83,17 +119,11 @@ const BrowserWindow = ({ onClose }) => {
           >
             Experience
           </button>
-          <button 
-            className={`tab-button ${activeTab === "education" ? "active" : ""}`} 
-            onClick={() => setActiveTab("education")}
-          >
-            Education
-          </button>
-          <span className="close" onClick={onClose}>×</span>
         </div>
 
-        {/* Main Content */}
-        <div className="main-content">{renderContent()}</div>
+        {/* --------------------------------- Content -------------------------------- */}
+        <div className="main-content">
+          {renderContent()}</div>
       </div>
     );
 };

@@ -33,9 +33,16 @@ html, body, #root, .App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60px;
+  width: 80px;
+  padding: 5px;
   font-size: 14px;
   text-align: center;
+}
+
+.shortcuts:hover {
+  border-radius: 5px;
+  background-color: #dac1fc56;
+  color: var(--accent4)
 }
 
 .shortcuts img {
@@ -77,28 +84,32 @@ html, body, #root, .App {
 /* ------------------------------ Dropdown Menu ----------------------------- */
 .menu-dropdown {
   position: absolute;
-  bottom: 60px;
+  bottom: 50px;
   left: 0;
-  background-color: #2a213b;
-  border: 1px solid #888;
+  background-color: var(--secondary);
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
+  margin: 8px;
 }
 
 .menu-dropdown button {
   background: none;
   border: none;
-  color: white;
-  padding: 8px;
+  color: var(--background);
+  padding: 5px 10px;
   cursor: pointer;
   text-align: left;
   width: 100%;
   height: auto;
   font-size: 14px;
+  overflow: hidden;
 }
 
 .menu-dropdown button:hover {
-  background-color: #3a2f4b;
+  background-color: var(--background);
+  color: var(--primary);
+  overflow: hidden;
 }
 
 /* ------------------------------ Open Programs ----------------------------- */
