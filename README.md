@@ -14,10 +14,15 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
 - [x] title+search bar to the browser window
 - [ ] header and other decorations to the experience "website"
+    - [ ] tidy up search bar icons
+    - [ ] add text to home page
+    - [ ] make liked buttons pink
+    - [ ] make window draggable
 - [ ] command prompt program for the education
 - [ ] animations for opening/closing windows and menus
 - [ ] cool desktop background
 - [ ] start working on phone view
+
 
 <i>Up Next</i>
 - Photo Gallery for projects
@@ -94,5 +99,14 @@ There was also a strange spaceing issue with the taskbar and the app itself, IDR
 Also finished the next TODO item, the taskbar is looking very Windows-esque but thats kind if the idea so ill let it slide for now lol.
 
 I wasn't anticipating on this taking as long as it did, I think I started around 4-ish? I will probably come back later and do some stuff cause the browser window is bothering me. Ciao for now.
+
+PART  2
+
+- Made the title bar for the windows a global feature for all the windows
+- Added search bar and a header to the experience window
+- Renamed the shortcuts to be more clear about what they are
+- Drew up an icon for one of the shortcuts, will improve later
+- Hover effects for the shortcuts
+- Adding comment separators
 
 </details>
