@@ -11,8 +11,8 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] Organize buttons/links on profile window
 - [x] Fix resume PDF button
 - [x] taskbar w/ buttons to minimize the browser and profile windows
-- [ ] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
-- [ ] title+search bar to the browser window
+- [x] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
+- [x] title+search bar to the browser window
 - [ ] header and other decorations to the experience "website"
 - [ ] command prompt program for the education
 - [ ] animations for opening/closing windows and menus
@@ -78,5 +78,21 @@ I took inspiration from the tiktok I watched and added a taskbar and some shortc
 ![alt text](https://github.com/Lavender-C/portfolio-site/blob/main/mockups/site_v0.4.png "Image of the latest version of the website")
 Jumping off of that I don't fully know the best practices for formatting JS and CSS, it makes sense to me and everything seems pretty well organized for now but I think I will look for some "best practices" guides or something to see if it can be improved.
 I have the next week off work, I would like to have the site up and running by next Saturday. I think I have outlined everything I want to include, everything up to "Up Next" should be finished to be ready go live. I'll aim for that but I guess its not the end of the world if it doesn't happen.
+
+</details>
+
+<details>
+  
+<summary> <h3>3/24/25</h3>  </summary>
+
+Mostly fixed some rendering issues. Added icon support from https://tabler.io/icons. They are so chunky and round I love them.
+
+The spacing on the ProfileWindow title bar was bothering me so i spend a while fixing it. I might add this title bar style to all of the program windows.
+
+There was also a strange spaceing issue with the taskbar and the app itself, IDRK what was causing it but I added some CSS so hopefully it statys fixed.
+
+Also finished the next TODO item, the taskbar is looking very Windows-esque but thats kind if the idea so ill let it slide for now lol.
+
+I wasn't anticipating on this taking as long as it did, I think I started around 4-ish? I will probably come back later and do some stuff cause the browser window is bothering me. Ciao for now.
 
 </details>
