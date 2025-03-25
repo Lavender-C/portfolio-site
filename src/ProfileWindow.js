@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { IconX } from '@tabler/icons-react';
 import './ProfileWindow.css';
 import "./global.css"; 
 import pfp from '../public/persona headshot.png'
@@ -47,7 +48,7 @@ const ProfileWindow = ({ onClose }) => {
             <div ref={topBarRef} className="top-bar">
                 <span className="title">aboutme.exe</span>
                 <div className="icons">
-                    <span className="close" onClick={onClose}>×</span>
+                    <span className="close" onClick={onClose}> <IconX size={12} stroke={5}/> </span>
                 </div>
             </div>
             <div className="content">

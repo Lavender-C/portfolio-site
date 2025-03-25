@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import { IconWifi, IconBatteryCharging } from '@tabler/icons-react';
 import ProfileWindow from './ProfileWindow';
 import BrowserWindow from './BrowserWindow';
 import './App.css';
@@ -9,6 +10,15 @@ const App = () => {
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isBrowserOpen, setBrowserOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   
   const openPrograms = [];
   if (isProfileOpen) openPrograms.push("aboutme.exe");
@@ -18,7 +28,9 @@ const App = () => {
     <div className="App">
       <div className= "desktop">
 
-        {/* Shortcuts */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                                  SHORTCUTS                                 */}
+      {/* -------------------------------------------------------------------------- */}
         <div className="shortcuts" onClick={() => setProfileOpen(true)}>
           <img src="profile-pic.jpg" alt="Profile Icon" />
           <span>aboutme.exe</span>
@@ -35,11 +47,13 @@ const App = () => {
         </div>
       </div>
 
-      {/* Windows */}
+     {/* -------------------------- set windows to close -------------------------- */}
       {isProfileOpen && <ProfileWindow onClose={() => setProfileOpen(false)} /> }
       {isBrowserOpen && <BrowserWindow onClose={() => setBrowserOpen(false)} /> }
 
-      {/* Taskbar */}
+      {/* -------------------------------------------------------------------------- */}
+      {/*                                   TASKBAR                                  */}
+      {/* -------------------------------------------------------------------------- */}
       <div className ="taskbar">
         {/* Menu Button */}
         <div className ="taskbar-menu">
@@ -53,7 +67,7 @@ const App = () => {
           )}
         </div>
 
-        {/* Open Programs */}
+        {/* ----------------------------- active programs ---------------------------- */}
         <div className="taskbar-programs">
           {openPrograms.map((program, index) => (
             <div key={index} className="taskbar-item">
@@ -61,6 +75,14 @@ const App = () => {
             </div>
           ))}
         </div>
+
+        {/* --------------------------------- toolbox -------------------------------- */}
+        <div className="taskbar-toolbox">
+            <IconWifi/>
+            <IconBatteryCharging/>
+            {time.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}
+        </div>
+
       </div>
     </div>
   );
