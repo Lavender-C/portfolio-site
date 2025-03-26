@@ -1,0 +1,24 @@
+.consoleWindow {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    width: 500px;
+    height: 320px;
+    background-color: var(--off-black);
+    color: limegreen;
+    text-align: left;
+    font-family: "Space Mono", monospace;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    border-radius: 15px;
+    white-space: pre-line;
+}
+
+.consoleContent {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+    white-space: pre-line;
+}

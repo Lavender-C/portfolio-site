@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
+import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArrowRight, IconSquarePlus, IconSquareRoundedPlusFilled } from '@tabler/icons-react';
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
 
@@ -62,7 +62,10 @@ const BrowserWindow = ({ onClose }) => {
       return (
         <div className="experience-section">
           <div className="scroll-container">
-          <div className="experience-header">Header Text</div>
+          <div className="experience-header">
+            <h2>Experience.com</h2>
+            <h3>share your experience</h3>
+          </div>
             {posts.map((post) => (
               <ExperiencePost key={post.id} {...post} />
             ))}
@@ -71,8 +74,12 @@ const BrowserWindow = ({ onClose }) => {
       );
     }
 
-    if (activeTab === "home") return <p>Welcome to my site! This is the Home tab.</p>;
-  };
+    if (activeTab === "home") {
+      return(
+        <p>Hi my name is Lavender.</p>
+      ) 
+    };
+  }
 
   /* -------------------------------------------------------------------------- */
 
@@ -90,16 +97,16 @@ const BrowserWindow = ({ onClose }) => {
 
         <div className="search-bar">
 
-          <div>
-            <IconHomeFilled size={20}/>
+          <div className="search-icons">
+            <IconHomeFilled size={23}/>
             <IconRefresh stroke={3}/>
           </div>
           
           <div className="search-bubble"> Search... <IconSearch size={15} stroke={4} /> </div>
 
-          <div>
-            <IconArrowLeft />
-            <IconArrowRight />
+          <div className="search-icons">
+            <IconArrowLeft stroke={4} />
+            <IconArrowRight stroke={4} />
           </div>
           
         </div>
@@ -119,6 +126,10 @@ const BrowserWindow = ({ onClose }) => {
           >
             Experience
           </button>
+
+          <IconSquareRoundedPlusFilled/>
+
+          
         </div>
 
         {/* --------------------------------- Content -------------------------------- */}

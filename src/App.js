@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { IconWifi, IconBatteryCharging } from '@tabler/icons-react';
 import ProfileWindow from './ProfileWindow';
 import BrowserWindow from './BrowserWindow';
+import ConsoleWindow from "./ConsoleWindow";
 import './App.css';
 
 
@@ -9,8 +10,13 @@ const App = () => {
   
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isBrowserOpen, setBrowserOpen] = useState(false);
+  const [isConsoleOpen, setConsoleOpen] = useState(false);
+
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [time, setTime] = useState(new Date());
+
+  const [consoleReset, setConsoleReset] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,6 +29,18 @@ const App = () => {
   const openPrograms = [];
   if (isProfileOpen) openPrograms.push("aboutme.exe");
   if (isBrowserOpen) openPrograms.push("browser.exe");
+  if (isConsoleOpen) openPrograms.push("console.exe");
+
+  /* ----------------------------- console events ----------------------------- */
+  const handleOpenConsole = () => {
+    setConsoleOpen(true);
+    setConsoleReset(false); // Restart the animation when the console is opened
+  };
+
+  const handleCloseConsole = () => {
+    setConsoleOpen(false);
+    setConsoleReset(true); // Reset the text when the console is closed
+  };
 
   return (
     <div className="App">
@@ -32,24 +50,29 @@ const App = () => {
       {/*                                  SHORTCUTS                                 */}
       {/* -------------------------------------------------------------------------- */}
         <div className="shortcuts" onClick={() => setProfileOpen(true)}>
-          <img src="aboutme-icon.png" alt="Profile Icon" />
+          <img src="aboutme-icon.png" alt="Contact" />
           <span>Contact</span>
         </div>
 
         <div className="shortcuts" onClick={() => setBrowserOpen(true)}>
-          <img src="profile-pic.jpg" alt="Browser Icon" />
+          <img src="browser-icon.png" alt="Experience" />
           <span>Experience</span>
         </div>
 
-        <div className="shortcuts">
-          <img src="profile-pic.jpg" alt="Command Line" />
+        <div className="shortcuts" onClick ={handleOpenConsole}>
+          <img src="console-icon.png" alt="Education" />
           <span>Education</span>
         </div>
       </div>
 
-     {/* -------------------------- set windows to close -------------------------- */}
+     {/* -------------------------- window events -------------------------- */}
       {isProfileOpen && <ProfileWindow onClose={() => setProfileOpen(false)} /> }
       {isBrowserOpen && <BrowserWindow onClose={() => setBrowserOpen(false)} /> }
+      {isConsoleOpen && (
+        <ConsoleWindow 
+          onClose={handleCloseConsole}
+          resetText={consoleReset}/>
+        )}
 
       {/* -------------------------------------------------------------------------- */}
       {/*                                   TASKBAR                                  */}
