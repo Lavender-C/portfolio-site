@@ -124,12 +124,12 @@ PART  2
 <summary> <h3>3/25/25</h3>  </summary>
 
 What I got done:
-    - Made the console page
-        - a very arduous journey. I spent like 2 hours trying to make the typing animation for the typewriter text on the console just to find out there was a module for it the whole time I hate it here. Eventually I want to make it so that the command is at the bottom then when you click the window the animation starts but I can't be bothered right now I'm leaving it :skull:
-    - Added the bare minimum to the browser
-        - IDK why but I really do not want to do this so we are doing anything other than that right now. It is very ok. It shows up. I also have no clear direction for what I want to put in the experience page to make it look more real so we are putting it off.
+- Made the console page
+    - a very arduous journey. I spent like 2 hours trying to make the typing animation for the typewriter text on the console just to find out there was a module for it the whole time I hate it here. Eventually I want to make it so that the command is at the bottom then when you click the window the animation starts but I can't be bothered right now I'm leaving it :skull:
+    ![alt text](https://github.com/Lavender-C/portfolio-site/blob/main/mockups/console_window.png "Image of the latest version of the new console window")
+- Added the bare minimum to the browser
+    - IDK why but I really do not want to do this so we are doing anything other than that right now. It is very ok. It shows up. I also have no clear direction for what I want to put in the experience page to make it look more real so we are putting it off.
 
-    I feel like I did a lot today but idk if I'm on pace to be done by the end of the week. But I definitely want to get as much done as possible so once I go back to work the heavy lifting is mostly done.
-    I experimented with Typescript. I might switch all the JS over but I don't quite see a reason to yet.
+I feel like I did a lot today but idk if I'm on pace to be done by the end of the week. But I definitely want to get as much done as possible so once I go back to work the heavy lifting is mostly done. I experimented with Typescript. I might switch all the JS over but I don't quite see a reason to yet. I'm tired.
 
 </details>
