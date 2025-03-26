@@ -13,22 +13,31 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] taskbar w/ buttons to minimize the browser and profile windows
 - [x] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
 - [x] title+search bar to the browser window
+- [ ] Photo Gallery for projects
+    - [ ] SULI Project
+    - [ ] Senior Capstone Project
+    - [ ] Room Raiser Project
 - [ ] header and other decorations to the experience "website"
-    - [ ] tidy up search bar icons
+    - [x] tidy up search bar icons
     - [ ] add text to home page
-    - [ ] make liked buttons pink
+    - [x] make liked buttons pink
     - [ ] make window draggable
-- [ ] command prompt program for the education
+- [x] command prompt program for the education
 - [ ] animations for opening/closing windows and menus
 - [ ] cool desktop background
-- [ ] start working on phone view
+
+FIXES
+- [ ] windows should come to top when corresponding top bar is dragged
+- [ ] hitting the program buttons in the task bar should center the windows and bring them to the top
 
 
 <i>Up Next</i>
 - Photo Gallery for projects
 - draw icons
+- draw experience banner
 - cute boot screen
 - unit tests
+- start working on phone view
 - where are we hosting?
 
 
@@ -108,5 +117,19 @@ PART  2
 - Drew up an icon for one of the shortcuts, will improve later
 - Hover effects for the shortcuts
 - Adding comment separators
+
+</details>
+
+<details>
+<summary> <h3>3/25/25</h3>  </summary>
+
+What I got done:
+    - Made the console page
+        - a very arduous journey. I spent like 2 hours trying to make the typing animation for the typewriter text on the console just to find out there was a module for it the whole time I hate it here. Eventually I want to make it so that the command is at the bottom then when you click the window the animation starts but I can't be bothered right now I'm leaving it :skull:
+    - Added the bare minimum to the browser
+        - IDK why but I really do not want to do this so we are doing anything other than that right now. It is very ok. It shows up. I also have no clear direction for what I want to put in the experience page to make it look more real so we are putting it off.
+
+    I feel like I did a lot today but idk if I'm on pace to be done by the end of the week. But I definitely want to get as much done as possible so once I go back to work the heavy lifting is mostly done.
+    I experimented with Typescript. I might switch all the JS over but I don't quite see a reason to yet.
 
 </details>
