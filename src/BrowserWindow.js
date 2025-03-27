@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArrowRight, IconSquarePlus, IconSquareRoundedPlusFilled } from '@tabler/icons-react';
+import React, { forwardRef, useState, useRef, useEffect} from "react";
+import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArrowRight, IconSquareRoundedPlusFilled } from '@tabler/icons-react';
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
 
-const BrowserWindow = ({ onClose }) => {
+const BrowserWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
+
+  const elementRef = ref || useRef(null);
+  const topBarRef = useRef(null);
+
   const [activeTab, setActiveTab] = useState("home");
 
   /* -------------------------------------------------------------------------- */
@@ -81,12 +85,48 @@ const BrowserWindow = ({ onClose }) => {
     };
   }
 
+  /* ----------------------------- draggable logic ---------------------------- */
+
+      useEffect(() => {
+          const element = elementRef.current;
+          const topBar = topBarRef.current;
+          let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0;
+  
+          const mouseDownHandler = (e) => {
+              e.preventDefault();
+              mouseX = e.clientX;
+              mouseY = e.clientY;
+              document.addEventListener('mousemove', mouseMoveHandler);
+              document.addEventListener('mouseup', mouseUpHandler);
+          };
+  
+          const mouseMoveHandler = (e) => {
+              offsetX = e.clientX - mouseX;
+              offsetY = e.clientY - mouseY;
+              element.style.top = `${element.offsetTop + offsetY}px`;
+              element.style.left = `${element.offsetLeft + offsetX}px`;
+              mouseX = e.clientX;
+              mouseY = e.clientY;
+          };
+  
+          const mouseUpHandler = () => {
+              document.removeEventListener('mousemove', mouseMoveHandler);
+              document.removeEventListener('mouseup', mouseUpHandler);
+          };
+  
+          topBar.addEventListener('mousedown', mouseDownHandler);
+  
+          return () => {
+              topBar.removeEventListener('mousedown', mouseDownHandler);
+          };
+      }, []);
+
   /* -------------------------------------------------------------------------- */
 
     return (
-      <div className="browser-window">
+      <div ref={elementRef} className="browser-window" style={{ zIndex}} onMouseDown={onClick}>
         {/* Top Navigation Bar */}
-        <div className="top-bar">
+        <div ref={topBarRef} className="top-bar">
                 <span className="title">Browser</span>
                 <div className="icons" onClick={onClose}>
                     <span className="close"> <IconX size={12} stroke={5}/> </span>
@@ -137,6 +177,6 @@ const BrowserWindow = ({ onClose }) => {
           {renderContent()}</div>
       </div>
     );
-};
+});
 
 export default BrowserWindow;

@@ -1,11 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, forwardRef } from 'react';
 import { IconX } from '@tabler/icons-react';
 import './ProfileWindow.css';
 import "./global.css"; 
 import pfp from '../public/persona headshot.png'
 
-const ProfileWindow = ({ onClose }) => {
-    const elementRef = useRef(null);
+const ProfileWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
+
+    /* ----------------------------- draggable logic ---------------------------- */
+
+    const elementRef = ref || useRef(null);
     const topBarRef = useRef(null);
 
     useEffect(() => {
@@ -44,14 +47,23 @@ const ProfileWindow = ({ onClose }) => {
     
     
     return (
-        <div ref={elementRef} className="profile-window">
+        
+        <div ref={elementRef} className="profile-window" style={{ zIndex}} onMouseDown={onClick}>
+
             <div ref={topBarRef} className="top-bar">
+
                 <span className="title">aboutme.exe</span>
+
                 <div className="icons">
                     <span className="close" onClick={onClose}> <IconX size={12} stroke={4}/> </span>
                 </div>
+
             </div>
+
             <div className="content">
+
+                {/* ----------------------------------- pfp ---------------------------------- */}
+
                 <div className='image-container'>
                     <img src={pfp.src} alt="Circular" className='circular-image'/>
                 </div>
@@ -60,7 +72,7 @@ const ProfileWindow = ({ onClose }) => {
                     <h3> Computer Science Grad</h3>
                 </div>
 
-                {/* contact links */}
+                {/* ------------------------------ contact links ----------------------------- */}
 
                 <div>
                     <a href="https://www.linkedin.com/in/lavender-calhoun/">linkedin</a>&emsp;
@@ -68,12 +80,12 @@ const ProfileWindow = ({ onClose }) => {
                     <a href="https://github.com/Lavender-C">github</a> 
                 </div>
                 
-                {/* resume buttton */}
+                {/* ------------------------------ resume button ----------------------------- */}
                 <br />
                 <a href={'/resume_F25.pdf'}> <button className = "resume-button">resume</button> </a>
             </div>
         </div>
     );
-};
+});
 
 export default ProfileWindow;

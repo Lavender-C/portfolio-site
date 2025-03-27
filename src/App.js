@@ -1,22 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { IconWifi, IconBatteryCharging } from '@tabler/icons-react';
 import ProfileWindow from './ProfileWindow';
 import BrowserWindow from './BrowserWindow';
-import ConsoleWindow from "./ConsoleWindow";
+import ConsoleWindow from './ConsoleWindow';
+import FileExplorer from "./FileExplorer";
 import './App.css';
 
 
 const App = () => {
   
+  /* ---------------------------- open/close bools ---------------------------- */
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isBrowserOpen, setBrowserOpen] = useState(false);
   const [isConsoleOpen, setConsoleOpen] = useState(false);
+  const [isExplorerOpen, setExplorerOpen] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [consoleReset, setConsoleReset] = useState(false); //resets the console animation on close
+  const [time, setTime] = useState(new Date()); //for taskbar clock
 
-  const [time, setTime] = useState(new Date());
-
-  const [consoleReset, setConsoleReset] = useState(false);
+  // References for windows
+  const profileRef = useRef(null);
+  const browserRef = useRef(null);
+  const consoleRef = useRef(null);
+  const explorerRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,21 +32,37 @@ const App = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  /* --------------------- update the taskbar program list -------------------- */
   
   const openPrograms = [];
-  if (isProfileOpen) openPrograms.push("aboutme.exe");
-  if (isBrowserOpen) openPrograms.push("browser.exe");
-  if (isConsoleOpen) openPrograms.push("console.exe");
+  if (isProfileOpen) openPrograms.push({ name: "aboutme.exe", ref: profileRef });
+  if (isBrowserOpen) openPrograms.push({ name: "browser.exe", ref: browserRef });
+  if (isConsoleOpen) openPrograms.push({ name: "console.exe", ref: consoleRef });
+  if (isExplorerOpen) openPrograms.push({ name: "explorer.exe", ref: explorerRef });
 
   /* ----------------------------- console events ----------------------------- */
   const handleOpenConsole = () => {
     setConsoleOpen(true);
-    setConsoleReset(false); // Restart the animation when the console is opened
+    setConsoleReset(false);
   };
 
   const handleCloseConsole = () => {
     setConsoleOpen(false);
-    setConsoleReset(true); // Reset the text when the console is closed
+    setConsoleReset(true);
+  };
+
+
+  /* ------------------------- center window function ------------------------- */
+
+  const centerWindow = (ref) => {
+    if (ref.current) {
+      ref.current.style.position = "absolute";
+      ref.current.style.left = "50%";
+      ref.current.style.top = "50%";
+      ref.current.style.transform = "translate(-50%, -50%)";
+      ref.current.style.zIndex = "1000"; // Ensure it's on top
+    }
   };
 
   return (
@@ -63,20 +86,35 @@ const App = () => {
           <img src="console-icon.png" alt="Education" />
           <span>Education</span>
         </div>
+
+        <div className="shortcuts" onClick ={() => setExplorerOpen(true)}>
+          <img src="profile-pic.jpg" alt="Projects" />
+          <span>Projects</span>
+        </div>
       </div>
 
      {/* -------------------------- window events -------------------------- */}
-      {isProfileOpen && <ProfileWindow onClose={() => setProfileOpen(false)} /> }
-      {isBrowserOpen && <BrowserWindow onClose={() => setBrowserOpen(false)} /> }
-      {isConsoleOpen && (
-        <ConsoleWindow 
-          onClose={handleCloseConsole}
-          resetText={consoleReset}/>
-        )}
+    
+    {isProfileOpen && (
+        <ProfileWindow ref={profileRef} onClose={() => setProfileOpen(false)} />
+    )}
+
+    {isBrowserOpen && (
+        <BrowserWindow ref={browserRef} onClose={() => setBrowserOpen(false)} />
+    )}
+
+    {isConsoleOpen && (
+        <ConsoleWindow ref={consoleRef} onClose={handleCloseConsole} resetText={consoleReset} />
+    )}
+
+      {isExplorerOpen && (
+        <FileExplorer ref={explorerRef} onClose={() => setExplorerOpen(false)} />
+    )}
 
       {/* -------------------------------------------------------------------------- */}
       {/*                                   TASKBAR                                  */}
       {/* -------------------------------------------------------------------------- */}
+
       <div className ="taskbar">
         {/* Menu Button */}
         <div className ="taskbar-menu">
@@ -91,10 +129,11 @@ const App = () => {
         </div>
 
         {/* ----------------------------- active programs ---------------------------- */}
+
         <div className="taskbar-programs">
           {openPrograms.map((program, index) => (
-            <div key={index} className="taskbar-item">
-              {program}
+            <div key={index} className="taskbar-item" onClick={() => centerWindow(program.ref)}>
+              {program.name}
             </div>
           ))}
         </div>

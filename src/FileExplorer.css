@@ -1,0 +1,106 @@
+.file-explorer {
+    width: 600px;
+    height: 600px;
+    background: var(--off-black);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+/* ----------------------------- breadcrumb bar ----------------------------- */
+
+.breadcrumb-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--grey-dark);
+    text-align: center;
+    height:fit-content;
+    padding: 8px;
+    background-color: var(--off-white);
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    padding: 10px;
+}
+
+/* -------------------------- folder and file icons ------------------------- */
+
+.folders, .files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.folder, .file {
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    text-align: center;
+
+}
+.folder img, .file img {
+    width: 60px;
+    height: 60px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.folder:hover, .file:hover {
+    border-radius: 5px;
+    background-color: #dac1fc56;
+    color: var(--accent4)
+}
+
+/* ------------------------------ lighbox stuff ----------------------------- */
+
+.lightbox {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.lightbox-content {
+    background: var(--off-white);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--background);
+    border-radius: 15px;
+}
+
+.lightbox img {
+    max-width: 300px;
+    display: block;
+    margin: auto;
+}
+
+.close-lightbox {
+    margin-top: 10px;
+    cursor: pointer;
+    background: var(--accent4);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+}

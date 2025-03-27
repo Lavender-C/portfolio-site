@@ -128,6 +128,13 @@ html, body, #root, .App {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.taskbar-item:hover {
+  background-color: #dac1fc56;
+  color: var(--accent4);
+
 }
 
 /* --------------------------------- Toolbar -------------------------------- */

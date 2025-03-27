@@ -1,21 +1,28 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 import { IconX } from "@tabler/icons-react";
 import styles from "./ConsoleWindow.module.css";
 import Typewriter from 'react-ts-typewriter';
 
 
-const ConsoleWindow = ({ 
-        onClose,
-    }: { 
-        onClose: () => void;
-    }) => {
+interface ConsoleWindowProps {
+    onClose: () => void;
+    zIndex: number;
+    onClick: () => void;
+}
 
-    const elementRef = useRef(null);
-    const topBarRef = useRef(null);
+const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose, zIndex, onClick }, ref) => {
+
+        /* ----------------------------- draggable logic ---------------------------- */
+        
+    const elementRef = useRef<HTMLDivElement>(null);
+    const topBarRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-            const element = elementRef.current;
+            const element = (ref as React.RefObject<HTMLDivElement>)?.current || elementRef.current;
             const topBar = topBarRef.current;
+
+            if (!element || !topBar) return;
+            
             let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0;
     
             const mouseDownHandler = (e) => {
@@ -48,7 +55,7 @@ const ConsoleWindow = ({
         }, []);
 
     return (
-        <div ref={elementRef} className={styles.consoleWindow}>
+        <div ref={ref || elementRef} className={styles.consoleWindow} style={{ zIndex }} onMouseDown={onClick}>
             
             <div ref = {topBarRef} className="top-bar">
                 <span className="title">Console</span>
@@ -78,6 +85,6 @@ const ConsoleWindow = ({
             </div>
         </div>
     );
-};
+});
 
 export default ConsoleWindow;
