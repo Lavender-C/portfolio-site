@@ -13,10 +13,9 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] taskbar w/ buttons to minimize the browser and profile windows
 - [x] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
 - [x] title+search bar to the browser window
-- [ ] Photo Gallery for projects
-    - [ ] SULI Project
-    - [ ] Senior Capstone Project
-    - [ ] Room Raiser Project
+- [ ] ~~Photo Gallery~~ File Explorer + Photo Gallery for projects
+    - [ ] take pictures for projects
+    - [ ] solve small image problem
 - [ ] header and other decorations to the experience "website"
     - [x] tidy up search bar icons
     - [ ] add text to home page
@@ -25,15 +24,23 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] command prompt program for the education
 - [ ] animations for opening/closing windows and menus
 - [ ] cool desktop background
+- [ ] menu buttons (sleep, restart, close ??)
 
 FIXES
 - [ ] windows should come to top when corresponding top bar is dragged
 - [ ] hitting the program buttons in the task bar should center the windows and bring them to the top
+- [ ] dont let windows go below the taskbar
 
 
 <i>Up Next</i>
-- Photo Gallery for projects
 - draw icons
+    - image files
+    - folders
+    - contact
+    - experience
+    - education
+    - projects
+    - site favicon
 - draw experience banner
 - cute boot screen
 - unit tests
@@ -44,7 +51,7 @@ FIXES
 <i>Extra Juicy Bits</i>
 - Animation for PFP that follows the mouse (only on computers?)
 - parallax on the desktop background?
-
+- resizable windows?
 
 <details>
 
@@ -131,5 +138,23 @@ What I got done:
     - IDK why but I really do not want to do this so we are doing anything other than that right now. It is very ok. It shows up. I also have no clear direction for what I want to put in the experience page to make it look more real so we are putting it off.
 
 I feel like I did a lot today but idk if I'm on pace to be done by the end of the week. But I definitely want to get as much done as possible so once I go back to work the heavy lifting is mostly done. I experimented with Typescript. I might switch all the JS over but I don't quite see a reason to yet. I'm tired.
+
+</details>
+
+<details>
+<summary> <h3>3/26/25</h3>  </summary>
+
+I got to work kind of late today, I think I sat down around midnight and started messing with things
+
+- I added (what I think) is the last program. I decided to add a 'file explorer' aspect to the photo gallery program to make it easier to navigate between projects. 
+    - The file breadcrumb bar is how you navigate the "file structure" and I think thats really baller :sunglasses:
+    - I think I want to add more space for the description. I will make a mockup later
+    - I only really have pictures of tune tracer and my UROP so I will need to try to boot up RoomRaiser (which i havent done in a year and a half :sob:) to get some pictures of the UI and stuff. I still need to decide how big I want the window to be cause right now the images are a bit small. As of right now I dont plan on making the windows resizable, that kind of sounds like a nightmare to implement and most of the content on the windows is not that complex so I'm hoping I wont have to but at the very least it will have to wait until like everything else is done.
+
+    ![alt text](https://github.com/Lavender-C/portfolio-site/blob/main/mockups/file-explorer.png "Image of the latest version of the new file explorer window")
+
+- started working on the functionality for the taskbar for focusing programs. The centering works just fine but I want the windows to also come to the top when the button is hit. Still have to work that into App.js but I'm tired so I'm not doing that tonight lol
+
+- added some more comment blocks to keep things organized
 
 </details>
