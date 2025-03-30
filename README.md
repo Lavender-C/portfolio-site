@@ -15,37 +15,43 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] title+search bar to the browser window
 - [ ] ~~Photo Gallery~~ File Explorer + Photo Gallery for projects
     - [ ] take pictures for projects
-    - [ ] solve small image problem
+    - [x] solve small image problem
 - [ ] header and other decorations to the experience "website"
     - [x] tidy up search bar icons
     - [ ] add text to home page
     - [x] make liked buttons pink
-    - [ ] make window draggable
+    - [x] make window draggable
 - [x] command prompt program for the education
-- [ ] animations for opening/closing windows and menus
+- [ ] cute boot screen
+- [x] tooltips for interactions
+    - [x] taskbar programs (click to focus window)
+    - [x] file explorer breadcrumb (click to return to projects folder)
 - [ ] cool desktop background
 - [ ] menu buttons (sleep, restart, close ??)
+- [ ] draw icons
+    - [ ] image files
+    - [ ] folders
+    - [ ] contact
+    - [ ] experience
+    - [ ] education
+    - [ ] projects
+    - [ ] site favicon
+- [ ] draw experience banner
+
 
 FIXES
-- [ ] windows should come to top when corresponding top bar is dragged
-- [ ] hitting the program buttons in the task bar should center the windows and bring them to the top
-- [ ] dont let windows go below the taskbar
+- [x] windows should come to top when corresponding top bar is dragged
+- [x] hitting the program buttons in the task bar should center the windows and bring them to the top
+- [x] ~~dont let windows go below the taskbar~~ come up with a way to save windows that go off-screen
+- [x] windows should open in the center
 
 
-<i>Up Next</i>
-- draw icons
-    - image files
-    - folders
-    - contact
-    - experience
-    - education
-    - projects
-    - site favicon
-- draw experience banner
-- cute boot screen
+<i>After Rollout</i>
+- animations for opening/closing windows and menus
 - unit tests
-- start working on phone view
-- where are we hosting?
+- phone view
+- full anim for console window
+
 
 
 <i>Extra Juicy Bits</i>
@@ -156,5 +162,28 @@ I got to work kind of late today, I think I sat down around midnight and started
 - started working on the functionality for the taskbar for focusing programs. The centering works just fine but I want the windows to also come to the top when the button is hit. Still have to work that into App.js but I'm tired so I'm not doing that tonight lol
 
 - added some more comment blocks to keep things organized
+
+</details>
+
+<details>
+<summary> <h3>3/29/25</h3>  </summary>
+
+I am pretty pleased with the progress!!! It really feels like the website is almost done. At the beginning of this "sprint" I said I wanted everything to be done by Saturday. I think that goal was definitelly achievable if I was really on top it but I spent a lot of time with my friends and family these last couple days which is why there was a break in my updates. That being said, I still plan on posting the site by tomorrow (!!!), just not with <i>every</i> single feature implemented. I thought on it a little bit and I think what is best at this point is to finish and polish all the major functionalities, go live, then I can add updates later. I just really want this portfolio site to go live while I'm applying for things. I also want to show it to my friends and family and get their feedback.
+
+short list of accomplishments:
+
+- window functionalities fully implemented
+    - windows open in the center of the screen
+    - clicking the program in the taskbar focuses it
+    - moving the window focuses it as well
+
+- taskbar comes to the top when you mouse over it (incase any of the windows go off screen and cover it)
+
+- changed the sizes of some windows so they are consistent and easy to read
+
+- added tooltips to interactions where it isn't immediately obvious what they do
+
+Honestly this might bleed into Monday depending on how the creative juices flow (and how easy it is to get the site up and running). I am really excited to see all of this come together. Even though its a fairly small and low-intensity project it is my first personal project that I have had full command over and ~~almost~~ seen to completion. It is very fufilling and I'm furiously brainstorming the next project I want to work on. :) Tally ho!
+
 
 </details>
