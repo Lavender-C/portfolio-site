@@ -4,7 +4,7 @@ import './ProfileWindow.css';
 import "./global.css"; 
 import pfp from '../public/persona headshot.png'
 
-const ProfileWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
+const ProfileWindow = forwardRef(({ onClose, zIndex, onClick, onFocus}, ref) => {
 
     /* ----------------------------- draggable logic ---------------------------- */
 
@@ -14,6 +14,9 @@ const ProfileWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
     useEffect(() => {
         const element = elementRef.current;
         const topBar = topBarRef.current;
+
+        if (!element || !topBar) return;
+
         let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0;
 
         const mouseDownHandler = (e) => {
@@ -48,9 +51,9 @@ const ProfileWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
     
     return (
         
-        <div ref={elementRef} className="profile-window" style={{ zIndex}} onMouseDown={onClick}>
+        <div ref={elementRef} className="profile-window" style={{ zIndex }}>
 
-            <div ref={topBarRef} className="top-bar">
+            <div ref={topBarRef} className="top-bar" onMouseDown={onFocus}>
 
                 <span className="title">aboutme.exe</span>
 

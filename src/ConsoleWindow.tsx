@@ -8,9 +8,10 @@ interface ConsoleWindowProps {
     onClose: () => void;
     zIndex: number;
     onClick: () => void;
+    onFocus: () => void;
 }
 
-const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose, zIndex, onClick }, ref) => {
+const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose, zIndex, onFocus }, ref) => {
 
         /* ----------------------------- draggable logic ---------------------------- */
         
@@ -55,9 +56,9 @@ const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose,
         }, []);
 
     return (
-        <div ref={ref || elementRef} className={styles.consoleWindow} style={{ zIndex }} onMouseDown={onClick}>
+        <div ref={ref || elementRef} className={styles.consoleWindow} style={{ zIndex }} >
             
-            <div ref = {topBarRef} className="top-bar">
+            <div ref = {topBarRef} className="top-bar" onMouseDown={onFocus}>
                 <span className="title">Console</span>
                 <div className="icons" onClick={onClose}>
                     <span className="close"> <IconX size={12} stroke={5}/> </span>

@@ -3,7 +3,7 @@ import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArro
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
 
-const BrowserWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
+const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
 
   const elementRef = ref || useRef(null);
   const topBarRef = useRef(null);
@@ -90,6 +90,9 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
       useEffect(() => {
           const element = elementRef.current;
           const topBar = topBarRef.current;
+
+          if (!element || !topBar) return;
+
           let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0;
   
           const mouseDownHandler = (e) => {
@@ -124,9 +127,9 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onClick }, ref) => {
   /* -------------------------------------------------------------------------- */
 
     return (
-      <div ref={elementRef} className="browser-window" style={{ zIndex}} onMouseDown={onClick}>
+      <div ref={elementRef} className="browser-window" style={{ zIndex}}>
         {/* Top Navigation Bar */}
-        <div ref={topBarRef} className="top-bar">
+        <div ref={topBarRef} className="top-bar" onMouseDown={onFocus}>
                 <span className="title">Browser</span>
                 <div className="icons" onClick={onClose}>
                     <span className="close"> <IconX size={12} stroke={5}/> </span>

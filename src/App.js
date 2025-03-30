@@ -8,12 +8,6 @@ import './App.css';
 
 
 const App = () => {
-  
-  /* ---------------------------- open/close bools ---------------------------- */
-  const [isProfileOpen, setProfileOpen] = useState(false);
-  const [isBrowserOpen, setBrowserOpen] = useState(false);
-  const [isConsoleOpen, setConsoleOpen] = useState(false);
-  const [isExplorerOpen, setExplorerOpen] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [consoleReset, setConsoleReset] = useState(false); //resets the console animation on close
@@ -25,6 +19,14 @@ const App = () => {
   const consoleRef = useRef(null);
   const explorerRef = useRef(null);
 
+  const [windows, setWindows] = useState([
+    {id: "profile", isOpen: false, ref: profileRef, zIndex: 1},
+    {id: "browser", isOpen: false, ref: browserRef, zIndex: 2},
+    {id: "console", isOpen: false, ref: consoleRef, zIndex: 3},
+    {id: "explorer", isOpen: false, ref: explorerRef, zIndex: 4},
+
+  ]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
@@ -33,36 +35,68 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
-  /* --------------------- update the taskbar program list -------------------- */
-  
-  const openPrograms = [];
-  if (isProfileOpen) openPrograms.push({ name: "aboutme.exe", ref: profileRef });
-  if (isBrowserOpen) openPrograms.push({ name: "browser.exe", ref: browserRef });
-  if (isConsoleOpen) openPrograms.push({ name: "console.exe", ref: consoleRef });
-  if (isExplorerOpen) openPrograms.push({ name: "explorer.exe", ref: explorerRef });
+  /* ---------------------------- window management --------------------------- */
+
+  // Bring a window to the front by updating zIndex
+  const bringToFront = (windowId) => {
+    setWindows((prevWindows) => {
+      const maxZ = Math.max(...prevWindows.map((win) => win.zIndex));
+      return prevWindows.map((win) =>
+        win.id === windowId && win.zIndex !== maxZ // Only update if necessary
+          ? { ...win, zIndex: maxZ + 1 }
+          : win
+      );
+    });
+  };
+
+  // Open a window and bring it to the front
+  const openWindow = (windowId) => {
+    setWindows((prevWindows) => {
+      const maxZ = Math.max(...prevWindows.map((win) => win.zIndex));
+      return prevWindows.map((win) =>
+        win.id === windowId
+          ? { ...win, isOpen: true, zIndex: maxZ + 1 }
+          : win
+      );
+    });
+  };
+
+  // Close a window
+  const closeWindow = (windowId) => {
+    setWindows((prevWindows) =>
+      prevWindows.map((win) =>
+        win.id === windowId ? { ...win, isOpen: false } : win
+      )
+    );
+  };
 
   /* ----------------------------- console events ----------------------------- */
   const handleOpenConsole = () => {
-    setConsoleOpen(true);
+    openWindow("console");
     setConsoleReset(false);
   };
 
   const handleCloseConsole = () => {
-    setConsoleOpen(false);
+    closeWindow("console");
     setConsoleReset(true);
   };
 
 
   /* ------------------------- center window function ------------------------- */
 
-  const centerWindow = (ref) => {
-    if (ref.current) {
-      ref.current.style.position = "absolute";
-      ref.current.style.left = "50%";
-      ref.current.style.top = "50%";
-      ref.current.style.transform = "translate(-50%, -50%)";
-      ref.current.style.zIndex = "1000"; // Ensure it's on top
-    }
+  const centerWindow = (windowId) => {
+    setWindows((prevWindows) => {
+      return prevWindows.map((win) => {
+        if (win.id === windowId && win.ref.current) {
+          win.ref.current.style.position = "absolute";
+          win.ref.current.style.left = "50%";
+          win.ref.current.style.top = "50%";
+          win.ref.current.style.transform = "translate(-50%, -50%)";
+        }
+        return win;
+      });
+    });
+    bringToFront(windowId);
   };
 
   return (
@@ -72,12 +106,12 @@ const App = () => {
       {/* -------------------------------------------------------------------------- */}
       {/*                                  SHORTCUTS                                 */}
       {/* -------------------------------------------------------------------------- */}
-        <div className="shortcuts" onClick={() => setProfileOpen(true)}>
+        <div className="shortcuts" onClick={() => openWindow("profile")}>
           <img src="aboutme-icon.png" alt="Contact" />
           <span>Contact</span>
         </div>
 
-        <div className="shortcuts" onClick={() => setBrowserOpen(true)}>
+        <div className="shortcuts" onClick={() => openWindow("browser")}>
           <img src="browser-icon.png" alt="Experience" />
           <span>Experience</span>
         </div>
@@ -87,29 +121,25 @@ const App = () => {
           <span>Education</span>
         </div>
 
-        <div className="shortcuts" onClick ={() => setExplorerOpen(true)}>
+        <div className="shortcuts" onClick ={() => openWindow("explorer")}>
           <img src="profile-pic.jpg" alt="Projects" />
           <span>Projects</span>
         </div>
       </div>
 
-     {/* -------------------------- window events -------------------------- */}
+    {/* -------------------------- window events -------------------------- */}
     
-    {isProfileOpen && (
-        <ProfileWindow ref={profileRef} onClose={() => setProfileOpen(false)} />
+    {windows.map(({ id, isOpen, ref, zIndex }) =>
+      isOpen && (
+        <div key={id}>  
+          {id === "profile" && <ProfileWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)} />}
+          {id === "browser" && <BrowserWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
+          {id === "console" && <ConsoleWindow ref={ref} onClose={handleCloseConsole} resetText={consoleReset} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
+          {id === "explorer" && <FileExplorer ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
+        </div>
+      )
     )}
 
-    {isBrowserOpen && (
-        <BrowserWindow ref={browserRef} onClose={() => setBrowserOpen(false)} />
-    )}
-
-    {isConsoleOpen && (
-        <ConsoleWindow ref={consoleRef} onClose={handleCloseConsole} resetText={consoleReset} />
-    )}
-
-      {isExplorerOpen && (
-        <FileExplorer ref={explorerRef} onClose={() => setExplorerOpen(false)} />
-    )}
 
       {/* -------------------------------------------------------------------------- */}
       {/*                                   TASKBAR                                  */}
@@ -131,11 +161,18 @@ const App = () => {
         {/* ----------------------------- active programs ---------------------------- */}
 
         <div className="taskbar-programs">
-          {openPrograms.map((program, index) => (
-            <div key={index} className="taskbar-item" onClick={() => centerWindow(program.ref)}>
-              {program.name}
-            </div>
-          ))}
+          {windows
+            .filter((win) => win.isOpen)
+            .map((win) => (
+              <div
+                key={win.id}
+                className="taskbar-item"
+                onClick={() => centerWindow(win.id)}
+                title="click me to focus the window!"
+              >
+                {win.id}.exe
+              </div>
+            ))}
         </div>
 
         {/* --------------------------------- toolbox -------------------------------- */}

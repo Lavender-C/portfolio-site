@@ -1,10 +1,11 @@
 /* src/BrowserWindow.css */
 .browser-window {
     position: absolute;
+    transform: translate(-50%, -50%);
     top: 50%;
-    left: 50%;  
-    width: 70vw;
-    height: 85vh;
+    left: 50%;
+    width: 800px;
+    height: 800px;
     border-radius: 15px;
     background-color: #4E4987;
     display: flex;

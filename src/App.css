@@ -62,7 +62,12 @@ html, body, #root, .App {
   height: 50px;
   border-radius: 5px;
   display: flex;
+  background-color: rgba(189, 180, 216, 0.299);
   box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.taskbar:hover{ /* in case something covers the taskbar */
+  z-index: 9999;
 }
 
 .taskbar-menu button {

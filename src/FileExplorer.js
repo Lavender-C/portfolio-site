@@ -29,7 +29,7 @@ const fileStructure = {
     
 };
 
-const FileExplorer = forwardRef(({ onClose, zIndex, onClick }, ref) => {
+const FileExplorer = forwardRef(({ onClose, zIndex, onFocus }, ref) => {
 
     /* ---------------------------- movable titlebar ---------------------------- */
     const elementRef = ref || useRef(null);
@@ -70,6 +70,9 @@ const FileExplorer = forwardRef(({ onClose, zIndex, onClick }, ref) => {
         useEffect(() => {
                 const element = elementRef.current;
                 const topBar = topBarRef.current;
+
+                if (!element || !topBar) return;
+
                 let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0;
         
                 const mouseDownHandler = (e) => {
@@ -102,9 +105,9 @@ const FileExplorer = forwardRef(({ onClose, zIndex, onClick }, ref) => {
             }, []);
 
     return (
-        <div ref={elementRef} className="file-explorer" style={{ zIndex}} onMouseDown={onClick}>
+        <div ref={elementRef} className="file-explorer" style={{ zIndex}} >
 
-            <div ref={topBarRef} className="top-bar">
+            <div ref={topBarRef} className="top-bar" onMouseDown={onFocus}>
 
                 <span className="title">file-explorer.exe</span>
                 <div className="icons" onClick={onClose}>
@@ -114,7 +117,7 @@ const FileExplorer = forwardRef(({ onClose, zIndex, onClick }, ref) => {
 
             {/* ----------------------------- breadcrumb bar ----------------------------- */}
 
-            <div className="breadcrumb-bar">
+            <div className="breadcrumb-bar" title="return to the projects folder">
                 {currentPath.map((folder, index) => (
                         <span key={index} onClick={() => goBack(index)}>
                             {folder} {index < currentPath.length - 1 ? "/" : ""}

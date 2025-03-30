@@ -1,8 +1,8 @@
 .file-explorer {
-    width: 600px;
-    height: 600px;
-    background: var(--off-black);
-    color: white;
+    width: 900px;
+    height: 800px;
+    background: var(--grey-mid);
+    color: var(--off-black);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 15px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* ----------------------------- breadcrumb bar ----------------------------- */
@@ -26,6 +27,11 @@
     padding: 8px;
     background-color: var(--off-white);
     cursor: pointer;
+}
+
+.breadcrumb-bar:hover{
+    color: var(--background);
+    font-weight: bold;
 }
 
 .content {
@@ -72,8 +78,8 @@
     position: fixed;
     top: 25px;
     left: 0;
-    width: 600px;
-    height: 600px;
+    width: 900px;
+    height: 775px;
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
@@ -90,7 +96,7 @@
 }
 
 .lightbox img {
-    max-width: 300px;
+    max-height: 600px;
     display: block;
     margin: auto;
 }
