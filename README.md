@@ -22,11 +22,11 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
     - [x] make liked buttons pink
     - [x] make window draggable
 - [x] command prompt program for the education
-- [ ] cute boot screen
+- [x] cute boot screen
 - [x] tooltips for interactions
     - [x] taskbar programs (click to focus window)
     - [x] file explorer breadcrumb (click to return to projects folder)
-- [ ] cool desktop background
+- [x] cool desktop background
 - [ ] menu buttons (sleep, restart, close ??)
 - [ ] draw icons
     - [ ] image files

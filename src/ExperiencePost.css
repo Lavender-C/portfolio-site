@@ -36,7 +36,7 @@
 
 .post-body {
     font-size: 14px;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .like-button {
@@ -49,18 +49,41 @@
     transition: transform 0.1s ease-in-out, background 0.3s;
 }
 
-.like-button:hover {
+.like-button:hover, .like-button.liked:hover {
     background: var(--accent3);
+    color: var(--off-black);
 }
 
-.like-button.liked {
+.like-button.pop{
     transform: scale(1.2);
-    background: #ffb4aa;
-    color: white;
+    background: var(--accent4);
+    color: rgb(118, 70, 70);
+}
+
+.like-button.liked{
+    background: var(--accent4);
+    color: rgb(118, 70, 70);
 }
 
 .like-button.unliked {
     transform: scale(0.8);
     background: #414141;
     color: white;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.tag{
+    font-size: 12px;
+    font-weight: 600;
+    background-color: var(--accent2);
+    border-radius: 20px;
+    padding: 3px 5px;
+    color: var(--background);
+    text-align: center;
 }

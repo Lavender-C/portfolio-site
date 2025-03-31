@@ -25,6 +25,7 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         "Automated dataset generation for molecular dynamics simulations, reducing manual processing by 68%.",
         "Optimized training cycles by creating workflows to generate datasets addressing model weaknesses.",
       ],
+      tags: ["Python", "MongoDB", "Linux", "Git"]
     },
     {
       id: "2",
@@ -35,6 +36,7 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         "Explored the Neural Radiance Fields (NeRF) algorithm, focusing on its architecture, principles, and applications.",
         "Refined data preprocessing and model optimization, reducing novel view interpolation error by 15%.",
       ],
+      tags: ["Python", "TensorFlow"]
     },
     {
       id: "3",
@@ -46,6 +48,7 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         "Developed a comprehensive style guide, standardizing color palettes, fonts, and design elements.",
         "Conducted three user interviews and created detailed profiles to inform design decisions.",
       ],
+      tags: ["HTML/CSS", "Javascript", "Wordpress"]
     },
     {
       id: "4",
@@ -56,6 +59,7 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         "Worked on cybersecurity initiatives, exploring vulnerability detection techniques.",
         "Implemented security protocols and assisted in risk assessment studies.",
       ],
+      tags: ["Python", "Keras", "CUDA", "NumPy", "Pandas", "MatPlotLib", "Seaborn"]
     },
   ];
 

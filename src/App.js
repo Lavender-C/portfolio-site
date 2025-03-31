@@ -9,6 +9,10 @@ import './App.css';
 
 const App = () => {
 
+  const [booting, setBooting] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [fadeOut, setFadeOut] = useState(false);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [consoleReset, setConsoleReset] = useState(false); //resets the console animation on close
   const [time, setTime] = useState(new Date()); //for taskbar clock
@@ -26,6 +30,24 @@ const App = () => {
     {id: "explorer", isOpen: false, ref: explorerRef, zIndex: 4},
 
   ]);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+        setProgress((oldProgress) => {
+            if (oldProgress >= 100) {
+                clearInterval(interval);
+                setFadeOut(true);
+                setTimeout(() => setBooting(false), 1500);
+                return 100;
+            }
+            return oldProgress + 10;
+        });
+    }, 200);
+
+    return () => clearInterval(interval);
+}, []);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -101,31 +123,41 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className= "desktop">
+      {booting && (
+                <div className={`boot-screen ${fadeOut ? "fade-out" : ""}`}>
+                    <h1>Hello, User!</h1>
+                    <i>Loading, please wait...</i>
+                    <div className="loading-bar-container">
+                        <div className="loading-bar" style={{ width: `${progress}%` }}></div>
+                    </div>
+                </div>
+            )}
+                  <div className={`desktop ${booting ? "hidden" : ""}`}>
 
-      {/* -------------------------------------------------------------------------- */}
-      {/*                                  SHORTCUTS                                 */}
-      {/* -------------------------------------------------------------------------- */}
-        <div className="shortcuts" onClick={() => openWindow("profile")}>
-          <img src="aboutme-icon.png" alt="Contact" />
-          <span>Contact</span>
-        </div>
+                  {/* -------------------------------------------------------------------------- */}
+                  {/*                                  SHORTCUTS                                 */}
+                  {/* -------------------------------------------------------------------------- */}
+                    <div className="shortcuts" onClick={() => openWindow("profile")}>
+                      <img src="aboutme-icon.png" alt="Contact" />
+                      <span>Contact</span>
+                    </div>
 
-        <div className="shortcuts" onClick={() => openWindow("browser")}>
-          <img src="browser-icon.png" alt="Experience" />
-          <span>Experience</span>
-        </div>
+                    <div className="shortcuts" onClick={() => openWindow("browser")}>
+                      <img src="browser-icon.png" alt="Experience" />
+                      <span>Experience</span>
+                    </div>
 
-        <div className="shortcuts" onClick ={handleOpenConsole}>
-          <img src="console-icon.png" alt="Education" />
-          <span>Education</span>
-        </div>
+                    <div className="shortcuts" onClick ={handleOpenConsole}>
+                      <img src="console-icon.png" alt="Education" />
+                      <span>Education</span>
+                    </div>
 
-        <div className="shortcuts" onClick ={() => openWindow("explorer")}>
-          <img src="profile-pic.jpg" alt="Projects" />
-          <span>Projects</span>
-        </div>
-      </div>
+                    <div className="shortcuts" onClick ={() => openWindow("explorer")}>
+                      <img src="profile-pic.jpg" alt="Projects" />
+                      <span>Projects</span>
+                    </div>
+                  </div>
+
 
     {/* -------------------------- window events -------------------------- */}
     
@@ -151,9 +183,9 @@ const App = () => {
           <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
           {menuOpen && (
             <div className="menu-dropdown">
-              <button>Option 1</button>
-              <button>Option 2</button>
-              <button>Option 3</button>
+              <button>Sleep</button>
+              <button>Restart</button>
+              <button>Close</button>
             </div>
           )}
         </div>
