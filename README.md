@@ -38,13 +38,11 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
     - [ ] site favicon
 - [ ] draw experience banner
 
-
 FIXES
 - [x] windows should come to top when corresponding top bar is dragged
 - [x] hitting the program buttons in the task bar should center the windows and bring them to the top
 - [x] ~~dont let windows go below the taskbar~~ come up with a way to save windows that go off-screen
 - [x] windows should open in the center
-
 
 <i>After Rollout</i>
 - animations for opening/closing windows and menus
@@ -184,6 +182,5 @@ short list of accomplishments:
 - added tooltips to interactions where it isn't immediately obvious what they do
 
 Honestly this might bleed into Monday depending on how the creative juices flow (and how easy it is to get the site up and running). I am really excited to see all of this come together. Even though its a fairly small and low-intensity project it is my first personal project that I have had full command over and ~~almost~~ seen to completion. It is very fufilling and I'm furiously brainstorming the next project I want to work on. :) Tally ho!
-
 
 </details>
