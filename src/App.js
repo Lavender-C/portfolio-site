@@ -153,7 +153,7 @@ const App = () => {
                     </div>
 
                     <div className="shortcuts" onClick ={() => openWindow("explorer")}>
-                      <img src="profile-pic.jpg" alt="Projects" />
+                      <img src="projects-icon.png" alt="Projects" />
                       <span>Projects</span>
                     </div>
                   </div>

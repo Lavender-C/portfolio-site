@@ -84,7 +84,12 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
 
     if (activeTab === "home") {
       return(
-        <p>Hi my name is Lavender.</p>
+        <div className="home-content">
+          <div className="profile-container">
+            <p>Hi! My name is <em>Lavender</em>, and I am a software developer based in Detroit, Michigan. I have always prefered to express myself through art, so UI/UX design is my way of mixing my two passions. Please browse around my site to learn more about what I've been working on, and if you see something you like please let me know! :)</p>
+              <img src="/me.jpg"/>
+          </div>
+        </div>
       ) 
     };
   }

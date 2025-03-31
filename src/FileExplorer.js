@@ -132,7 +132,7 @@ const FileExplorer = forwardRef(({ onClose, zIndex, onFocus }, ref) => {
                     <div className="files">
                         {currentFolder.files.map((file, index) => (
                             <div key={index} className="file" onClick={() => openImage(file)}>
-                                <img src="profile-pic.jpg" alt={file.name} />
+                                <img src="imagefile-icon.png" alt={file.name} />
                                 <span>{file.name}</span>
                             </div>
                         ))}
@@ -141,7 +141,7 @@ const FileExplorer = forwardRef(({ onClose, zIndex, onFocus }, ref) => {
                     <div className="folders">
                         {Object.keys(currentFolder).map((folder, index) => (
                             <div key={index} className="folder" onClick={() => navigateTo(folder)}>
-                                <img src="profile-pic.jpg" alt={folder} />
+                                <img src="file-icon.png" alt={folder} />
                                 <span>{folder}</span>
                             </div>
                         ))}

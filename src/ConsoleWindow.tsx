@@ -75,7 +75,8 @@ const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose,
 
                                 Relevant Courses: 
                                     - Data Structures and Algorithms
-                                    - Web Development, Database Management
+                                    - Web Development
+                                    - Database Management
 
                                 Achievements: 
                                 - Society of Computer Developers Member

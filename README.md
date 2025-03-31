@@ -18,7 +18,7 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
     - [x] solve small image problem
 - [ ] header and other decorations to the experience "website"
     - [x] tidy up search bar icons
-    - [ ] add text to home page
+    - [x] add text to home page
     - [x] make liked buttons pink
     - [x] make window draggable
 - [x] command prompt program for the education
@@ -29,12 +29,12 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] cool desktop background
 - [ ] menu buttons (sleep, restart, close ??)
 - [ ] draw icons
-    - [ ] image files
-    - [ ] folders
-    - [ ] contact
-    - [ ] experience
-    - [ ] education
-    - [ ] projects
+    - [x] image files
+    - [x] folders
+    - [x] contact
+    - [x] experience
+    - [x] education
+    - [x] projects
     - [ ] site favicon
 - [ ] draw experience banner
 
