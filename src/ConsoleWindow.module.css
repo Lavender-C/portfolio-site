@@ -2,7 +2,8 @@
     position: absolute;
     top: 50%;
     left: 50%; 
-    width: 500px;
+    max-width: 500px;
+    width: 75vw;
     height: 340px;
     background-color: var(--off-black);
     color: var(--accent2);

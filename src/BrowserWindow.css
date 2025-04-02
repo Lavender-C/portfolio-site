@@ -4,8 +4,10 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 800px;
-    height: 800px;
+    height: 85vh;
+    max-height: 800px;
+    width: 80vw;
+    max-width: 800px;
     border-radius: 15px;
     background-color: #4E4987;
     display: flex;
@@ -17,6 +19,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                    TABS                                    */
 /* -------------------------------------------------------------------------- */
+
 .browser-tabbar { 
     display: flex;
     flex-direction: row;
@@ -36,7 +39,7 @@
     min-width: 10em;
     padding: 10px 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: .9rem;
     transition: background 0.2s;
     font-family: Space Mono;
     white-space: nowrap;
@@ -94,36 +97,57 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   CONTENT                                  */
+/*                                  HOME TAB                                  */
 /* -------------------------------------------------------------------------- */
 
 .home-content{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 685px;
     justify-content: center;
+    min-height: fit-content;
+    height: auto;
+    padding: 5%;
 }
+
 .profile-container{
     display: flex;
-    flex-direction: row;
-    text-align: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
     background-color: #BBB2D6;
     border-radius: 15px;
-    width: 80%;
-    margin: 10px;
-    padding: 20px;
-    font-size: 18px;
+    width: 95%;
+    height: auto;
+    padding: 3%;
+}
+
+.profile-bio{
+    flex: 1;
+    align-content: center;
+    min-width: 50%;
+    font-size: .9rem;
+    text-align: left;
     color: var(--off-black);
-    line-height: 130%;
+    line-height: 1.5rem;
 }
 
 .profile-container img {
-    border-radius: 8px;
+    flex: 1;
+    min-width: 180px;
     max-width: 45%;
-    margin: 10px;
-    margin-left: 40px;
+    border-radius: 8px;
     border: 10px solid var(--off-white);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               EXPERIENCE TAB                               */
+/* -------------------------------------------------------------------------- */
+
+.experience-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .experience-header {
@@ -144,12 +168,15 @@
     flex-direction: column;
     overflow: hidden;
     color: white;
+    width:100%;
 }
 
 .scroll-container {
     flex-grow: 1;
-    overflow-y: auto;
-    max-height: calc(100vh - 250px) !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    max-height: calc(100vh - 32vh) !important;
     scrollbar-width: thin;
     scrollbar-color: #888 transparent;
 }

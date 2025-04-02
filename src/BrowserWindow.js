@@ -70,10 +70,10 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
       return (
         <div className="experience-section">
           <div className="scroll-container">
-          <div className="experience-header">
-            <h2>Experience.com</h2>
-            <h3>share your experience</h3>
-          </div>
+            <div className="experience-header">
+              <h2>Experience.com</h2>
+              <h3>share your experience</h3>
+            </div>
             {posts.map((post) => (
               <ExperiencePost key={post.id} {...post} />
             ))}
@@ -86,7 +86,9 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
       return(
         <div className="home-content">
           <div className="profile-container">
-            <p>Hi! My name is <em>Lavender</em>, and I am a software developer based in Detroit, Michigan. I have always prefered to express myself through art, so UI/UX design is my way of mixing my two passions. Please browse around my site to learn more about what I've been working on, and if you see something you like please let me know! :)</p>
+            <div className="profile-bio">
+              <p>Hi! My name is <em>Lavender</em>, and I am a software developer based in Detroit, Michigan. I have always prefered to express myself through art, so UI/UX design is my way of mixing my two passions. Please browse around my site to learn more about what I've been working on, and if you see something you like please let me know! :)</p>
+            </div>
               <img src="/me.jpg"/>
           </div>
         </div>
@@ -185,7 +187,7 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         </div>
 
         {/* --------------------------------- Content -------------------------------- */}
-        <div className="main-content">
+        <div className="experience-content">
           {renderContent()}</div>
       </div>
     );

@@ -1,6 +1,8 @@
 .file-explorer {
-    width: 900px;
-    height: 800px;
+    max-width: 900px;
+    width: 80vw;
+    max-height: 800px;
+    height: 80vh;
     background: var(--grey-mid);
     color: var(--off-black);
     position: absolute;
@@ -78,31 +80,51 @@
     position: fixed;
     top: 25px;
     left: 0;
-    width: 900px;
-    height: 775px;
+    width: 100%;
+    height: calc(100% - 25px);
+    max-height: 775px;
     background: rgba(0, 0, 0, 0.8);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     border-radius: 0 0 15px 15px;
 }
 
 .lightbox-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: max-content;
     background: var(--off-white);
     padding: 20px;
     border-radius: 10px;
     color: var(--background);
     border-radius: 15px;
+    width: 80%;
+    max-height: 100%;
+    font-size: 90%;
+    
+}
+
+.lightbox-text{
+    flex: 1;
+    width: 100%;
 }
 
 .lightbox img {
-    max-height: 600px;
+    flex: 1;
+    max-width: 75%;
+    height: auto;
     display: block;
+    object-fit: contain;
     margin: auto;
+
 }
 
 .close-lightbox {
-    margin-top: 10px;
+    margin-top: 5%;
+    max-width: max-content;
     cursor: pointer;
     background: var(--accent4);
     border-radius: 5px;

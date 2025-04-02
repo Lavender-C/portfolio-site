@@ -7,6 +7,7 @@
     border-radius: 10px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
+    max-width: 90%;
 }
 
 .profile-image {
@@ -19,17 +20,18 @@
 .post-content {
     flex: 1;
     text-align: left;
+    max-width: 80%;
 }
 
 .post-title {
-    font-size: 16px;
+    font-size: .9rem;
     font-weight: bold;
     color: var(--accent2);
     margin: 0;
 }
 
 .post-subtitle {
-    font-size: 14px;
+    font-size: .85rem;
     color: var(--accent3);
     margin: 2px 0;
 }
@@ -37,9 +39,12 @@
 .post-body {
     font-size: 14px;
     margin: 10px 0;
+    font-size: .8rem;
+    line-height: 1.2rem;
 }
 
 .like-button {
+    min-width: max-content;
     background: var(--primary);
     border: none;
     padding: 5px 10px;
@@ -74,13 +79,18 @@
 .tags {
     display: flex;
     flex-direction: row;
+    overflow-x: scroll;
+    max-height: 35px;
+    min-height: fit-content;
     gap: 10px;
     align-items: center;
 }
 
 .tag{
-    font-size: 12px;
+    font-size: .7rem;
     font-weight: 600;
+    overflow: visible;
+    min-width: max-content;
     background-color: var(--accent2);
     border-radius: 20px;
     padding: 3px 5px;

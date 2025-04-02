@@ -16,6 +16,7 @@ html, body, #root, .App {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
 }
@@ -73,8 +74,8 @@ html, body, #root, .App {
 
 /* ----------------------------- shortcut links ----------------------------- */
 .shortcuts {
-  top: 10px;
-  margin: 30px;
+  top: 1vh;
+  margin: 2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,8 +92,7 @@ html, body, #root, .App {
 }
 
 .shortcuts img {
-  width: 80px;
-  height: 80px;
+  height: 8vh;
   cursor: pointer;
 }
 

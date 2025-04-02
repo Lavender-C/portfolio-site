@@ -11,18 +11,18 @@ const fileStructure = {
     "Projects": {
         "Room Raiser":{
             files: [
-                { name: "first draft.jpg", src: "room-raiser/first draft.png", description: "Description for image 1" },
-                { name: "image2.jpg", src: "/images/image2.jpg", description: "Description for image 2" }
+                { name: "first draft.jpg", src: "room-raiser/first draft.png", description: "A mockup I designed for my Software Engineering project 'Room Raiser'" },
+                { name: "image2.jpg", src: "/images/image2.jpg", description: "Coming Soon!" }
             ]
         },
         "Tune Tracer": {
             files: [
-                { name: "image3.jpg", src: "/images/image3.jpg", description: "Description for image 3" }
+                { name: "image3.jpg", src: "/images/image3.jpg", description: "Coming Soon!"  }
             ]
         },
         "NeRF": {
             files: [
-                {name: "image4.jpg", src: "nerf/image4.jpg", description: "Description for image 4"}
+                {name: "image4.jpg", src: "nerf/image4.jpg", description: "Coming Soon!" }
             ]
         }
     }
@@ -156,7 +156,9 @@ const FileExplorer = forwardRef(({ onClose, zIndex, onFocus }, ref) => {
                         <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
 
                             <img src={selectedImage.src} alt={selectedImage.name} />
-                            <p>{selectedImage.description}</p>
+                            <div className="lightbox-text">
+                                <p>{selectedImage.description}</p>
+                            </div>
 
                             <button className="close-lightbox" onClick={() => setSelectedImage(null)}>✖</button>
 
