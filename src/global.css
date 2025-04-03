@@ -62,7 +62,7 @@ a:hover, .link {
     min-height: 25px;
     cursor: move;
     color: white;
-    font-size: 12px;
+    font-size: .7rem;
     border-radius: 15px 15px 0 0;
 }
 

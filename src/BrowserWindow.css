@@ -4,9 +4,9 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    height: 85vh;
+    height: 75vh;
     max-height: 800px;
-    width: 80vw;
+    width: 90vw;
     max-width: 800px;
     border-radius: 15px;
     background-color: #4E4987;
@@ -36,7 +36,7 @@
 /* Tab Buttons */
 .tab-button {
     background-color: #BBB2D6;
-    min-width: 10em;
+    min-width: 5em;
     padding: 10px 10px;
     cursor: pointer;
     font-size: .9rem;
@@ -126,17 +126,17 @@
     flex: 1;
     align-content: center;
     min-width: 50%;
-    font-size: .9rem;
+    font-size: .85rem;
     text-align: left;
     color: var(--off-black);
-    line-height: 1.5rem;
+    line-height: 1.4em;
 }
 
 .profile-container img {
     flex: 1;
-    min-width: 180px;
-    max-width: 45%;
+    max-width: 40%;
     border-radius: 8px;
+    margin: 2%;
     border: 10px solid var(--off-white);
 }
 
@@ -176,7 +176,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     width: 100%;
-    max-height: calc(100vh - 32vh) !important;
+    max-height: calc(100vh - 39vh) !important;
     scrollbar-width: thin;
     scrollbar-color: #888 transparent;
 }

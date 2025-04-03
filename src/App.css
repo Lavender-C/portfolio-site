@@ -74,8 +74,7 @@ html, body, #root, .App {
 
 /* ----------------------------- shortcut links ----------------------------- */
 .shortcuts {
-  top: 1vh;
-  margin: 2vw;
+  margin: 2vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,26 +92,26 @@ html, body, #root, .App {
 
 .shortcuts img {
   height: 8vh;
+  display: block;
   cursor: pointer;
+  margin-bottom: 1vh;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                   TASKBAR                                  */
 /* -------------------------------------------------------------------------- */
+
 .taskbar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 50px;
-  border-radius: 5px;
+  border-radius: 0 5px;
   display: flex;
   background-color: rgba(189, 180, 216, 0.299);
   box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.taskbar:hover{ /* in case something covers the taskbar */
-  z-index: 9999;
+  z-index: 9990;
 }
 
 .taskbar-menu button {
@@ -125,13 +124,14 @@ html, body, #root, .App {
   border: none;
   height: 100%;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 /* ------------------------------ Dropdown Menu ----------------------------- */
+
 .menu-dropdown {
   position: absolute;
   bottom: 50px;
@@ -152,8 +152,9 @@ html, body, #root, .App {
   text-align: left;
   width: 100%;
   height: auto;
-  font-size: 16px;
+  font-size: 1rem;
   overflow: hidden;
+  font-family: monospace;
 }
 
 .menu-dropdown button:hover {
@@ -166,19 +167,26 @@ html, body, #root, .App {
 /* ------------------------------ Open Programs ----------------------------- */
 .taskbar-programs {
   display: flex;
+  flex-direction: row;
   flex-grow: 1;
   gap: 10px;
   justify-content: flex-start;
-  padding: 0 10px;
   align-items: center;
+  text-align: center;
+  padding: 0 10px;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
 }
 
 .taskbar-item {
   background-color: #3a2f4b;
+  text-align: center;
+  height: fit-content;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: .9rem;
   cursor: pointer;
 }
 

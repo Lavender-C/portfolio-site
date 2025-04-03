@@ -34,8 +34,8 @@ const handleLike = () => {
 
 return (
     <div className="experience-post">
-        <img src={image} alt="Profile" className="profile-image" />
         <div className="post-content">
+
             <h2 className="post-title">{title}</h2>
             <h3 className="post-subtitle">{subtitle}</h3>
             

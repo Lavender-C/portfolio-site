@@ -6,21 +6,22 @@
     margin: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 5%;
     max-width: 90%;
 }
 
 .profile-image {
-    width: 40px;
-    height: 40px;
+    max-width: 5vw;
+    height: auto;
     border-radius: 50%;
-    margin-right: 15px;
+    margin: 3%;
 }
 
 .post-content {
     flex: 1;
     text-align: left;
-    max-width: 80%;
+    max-width: 100%;
+    
 }
 
 .post-title {
@@ -28,6 +29,9 @@
     font-weight: bold;
     color: var(--accent2);
     margin: 0;
+    height: fit-content;
+    display: flex;
+    align-items: center;
 }
 
 .post-subtitle {
@@ -84,6 +88,8 @@
     min-height: fit-content;
     gap: 10px;
     align-items: center;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
 }
 
 .tag{
