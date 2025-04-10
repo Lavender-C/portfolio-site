@@ -13,8 +13,8 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] taskbar w/ buttons to minimize the browser and profile windows
 - [x] datetime and other decorations (wifi, battery) to the taskbar (weather icons?)
 - [x] title+search bar to the browser window
-- [ ] ~~Photo Gallery~~ File Explorer + Photo Gallery for projects
-    - [ ] take pictures for projects
+- [x] ~~Photo Gallery~~ File Explorer + Photo Gallery for projects
+    - [x] take pictures for projects
     - [x] solve small image problem
 - [ ] header and other decorations to the experience "website"
     - [x] tidy up search bar icons
@@ -36,6 +36,7 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
     - [x] education
     - [x] projects
     - [ ] site favicon
+    - [ ] video
 - [ ] draw experience banner
 
 FIXES
@@ -49,13 +50,13 @@ FIXES
 - unit tests
 - phone view
 - full anim for console window
+- find or make a sick background for the desktop
 
 
 
 <i>Extra Juicy Bits</i>
 - Animation for PFP that follows the mouse (only on computers?)
 - parallax on the desktop background?
-- resizable windows?
 
 <details>
 
@@ -184,3 +185,26 @@ short list of accomplishments:
 Honestly this might bleed into Monday depending on how the creative juices flow (and how easy it is to get the site up and running). I am really excited to see all of this come together. Even though its a fairly small and low-intensity project it is my first personal project that I have had full command over and ~~almost~~ seen to completion. It is very fufilling and I'm furiously brainstorming the next project I want to work on. :) Tally ho!
 
 </details>
+
+
+<h3>4/9/25</h3>
+
+Hi! It's been quite a while since I last added an entry to the README, but that doesn't mean I haven't been hitting the grind! The site is live and the update process is very easy. I am very happy with hosting on Vercel. Because the site was live I showed it to a lot of my friends and family and they gave me some feedback so here is what I changed:
+
+- Scrolling all the way to the bottom of the experience page fixed
+- Responsive design added to the home page
+- Text links are more overt in that they can be clicked
+- The like button does not get cut off during its animation
+- The program shortcuts resize properly
+- The clock stops wrapping when a lot of programs are open (on mobile)
+- All of the content in the File Explorer has media and descriptions.
+- Fixed the name of a couple of the windows. (the topbar is the desktop program, the taskbar and the shortcuts shows the purpose of the window)
+- Console text animation is much faster
+
+Thr file explorer content was a bit harder than I expected, mostly because I had to go back and try to run some old projects to get photos and videos of them operating (Tune Tracer in particular gave me some grief since when I handed it over to the client I lost access to the API and database :/). I will not make that mistake again, I will take plenty of pics and videos of all projects moving forward while they are live so I don't have to try to scrounge stuff up again. It was also a little difficult deciding what to include and how in-depth to go. I am worried I'm a bit long winded on some of the image descriptions, if people think it's too verbose I'll come up with a way to be more concise (or change the layout).
+
+I think I'm almost done with all of the functions for the app. After that I think I will start adding more animations for the windows and the content in them.
+
+If you are viewing this coming from my website, thank you so much for checking out what I've worked on so far!! It has been so much fun to build a UI web project of my own since during most projects in school I had to work other features, so this is really my chance to let loose and express myself. If you have feedback or run into any problems, please make use of the Issues tab.
+
+It's very late, I got too locked in and now its 4am, so I'll wrap this up for now. <3
