@@ -94,12 +94,12 @@ const App = () => {
 
   /* ----------------------------- console events ----------------------------- */
   const handleOpenConsole = () => {
-    openWindow("console");
+    openWindow("education");
     setConsoleReset(false);
   };
 
   const handleCloseConsole = () => {
-    closeWindow("console");
+    closeWindow("education");
     setConsoleReset(true);
   };
 
@@ -137,12 +137,12 @@ const App = () => {
                   {/* -------------------------------------------------------------------------- */}
                   {/*                                  SHORTCUTS                                 */}
                   {/* -------------------------------------------------------------------------- */}
-                    <div className="shortcuts" onClick={() => openWindow("profile")}>
+                    <div className="shortcuts" onClick={() => openWindow("contact")}>
                       <img src="aboutme-icon.png" alt="Contact" />
                       <span>Contact</span>
                     </div>
 
-                    <div className="shortcuts" onClick={() => openWindow("browser")}>
+                    <div className="shortcuts" onClick={() => openWindow("experience")}>
                       <img src="browser-icon.png" alt="Experience" />
                       <span>Experience</span>
                     </div>
@@ -164,10 +164,10 @@ const App = () => {
     {windows.map(({ id, isOpen, ref, zIndex }) =>
       isOpen && (
         <div key={id}>  
-          {id === "profile" && <ProfileWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)} />}
-          {id === "browser" && <BrowserWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
-          {id === "console" && <ConsoleWindow ref={ref} onClose={handleCloseConsole} resetText={consoleReset} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
-          {id === "explorer" && <FileExplorer ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
+          {id === "contact" && <ProfileWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)} />}
+          {id === "experience" && <BrowserWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
+          {id === "education" && <ConsoleWindow ref={ref} onClose={handleCloseConsole} resetText={consoleReset} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
+          {id === "projects" && <FileExplorer ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
         </div>
       )
     )}
