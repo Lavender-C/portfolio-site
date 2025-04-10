@@ -80,6 +80,12 @@
     color: white;
 }
 
+.post-footer{
+    max-height: 35px;
+    display: flex;
+    gap: 10px;
+}
+
 .tags {
     display: flex;
     flex-direction: row;

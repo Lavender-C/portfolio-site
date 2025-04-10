@@ -46,20 +46,23 @@ return (
                 ))}
             </ul>
 
-            <div className ="tags">
-            <button 
-                id={`like-btn-${id}`} 
-                className={`like-button ${liked ? "liked" : ""} ${pop ? "pop" : ""}`} 
-                onClick={handleLike}
-            >
-                ‪‪❤︎‬ {likes}
-            </button>
+            <div className="post-footer">
 
-                {tags.map((tag, index) => (
-                    <span key={index} className="tag">
-                        #{tag}
-                    </span>
-                ))}
+                <button 
+                    id={`like-btn-${id}`} 
+                    className={`like-button ${liked ? "liked" : ""} ${pop ? "pop" : ""}`} 
+                    onClick={handleLike}
+                >
+                    ‪‪❤︎‬ {likes}
+                </button>
+                
+                <div className ="tags">
+                    {tags.map((tag, index) => (
+                        <span key={index} className="tag">
+                            #{tag}
+                        </span>
+                    ))}
+                </div>
             </div>
             
         </div>

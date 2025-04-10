@@ -103,6 +103,7 @@ html, body, #root, .App {
 
 .taskbar {
   position: fixed;
+  color: var(--off-white);
   bottom: 0;
   left: 0;
   width: 100%;
@@ -199,14 +200,13 @@ html, body, #root, .App {
 /* --------------------------------- Toolbar -------------------------------- */
 .taskbar-toolbox {
   right: 0;
-  color: white;
   height: inherit;
-  width: auto;
+  min-width: 140px;
   padding: 0 10px;
   font-size: 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
   border-top-right-radius: 5px;
 }

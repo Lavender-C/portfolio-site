@@ -88,8 +88,9 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
           <div className="profile-container">
             <div className="profile-bio">
               <p>Hi! My name is <em>Lavender</em>, and I am a software developer based in Detroit, Michigan. I have always prefered to express myself through art, so UI/UX design is my way of mixing my two passions. Please browse around my site to learn more about what I've been working on, and if you see something you like please let me know! :)</p>
+              <p>This website is a <b>work in progress</b>, you can view my updates and developer process on <a href="https://github.com/Lavender-C/portfolio-site">my project GitHub.</a></p>
             </div>
-              <img src="/me.jpg"/>
+            <img src="/me.jpg"/>
           </div>
         </div>
       ) 
@@ -187,8 +188,10 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         </div>
 
         {/* --------------------------------- Content -------------------------------- */}
+
         <div className="experience-content">
-          {renderContent()}</div>
+          {renderContent()}
+        </div>
       </div>
     );
 });

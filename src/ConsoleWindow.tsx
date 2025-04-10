@@ -68,8 +68,7 @@ const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose,
             <div className={styles.consoleContent}>
                 User@desktop:~$ cat education.txt<br/> <br/>
                 <Typewriter
-                            speed={10}
-                            delay={5}
+                            speed={0}
                             text={`B.S. in Computer Science from Wayne State University
                                 - Graduated: May 2024, GPA 3.68 (cum laude)
 
@@ -81,7 +80,7 @@ const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose,
                                 Achievements: 
                                 - Society of Computer Developers Member
                                 - 4 time Dean's List student
-                                - 6-time Vocal Music Performance Grant Awardee`}
+                                - 6 time Vocal Music Performance Grant Awardee`}
                             />
                 
             </div>

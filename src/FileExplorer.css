@@ -101,7 +101,7 @@
     border-radius: 10px;
     color: var(--background);
     border-radius: 15px;
-    max-width: 80%;
+    max-width: 85%;
     max-height: 90%;
     font-size: .8rem;
     
@@ -109,20 +109,23 @@
 
 .lightbox-text{
     flex: 1;
-    width: 100%;
+    font-size: .85rem;
+    line-height: 1rem;
+    text-align: left;
 }
 
-.lightbox img {
+.lightbox img, .lightbox video {
     flex: 1;
-    max-width: 400px;
-    width: 90%;
-    height: auto;
+    height: 80%;
+    width: auto;
+    max-width: 100%;
     display: block;
     object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .close-lightbox {
-    margin-top: 5%;
     max-width: max-content;
     cursor: pointer;
     background: var(--accent4);

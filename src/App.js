@@ -183,9 +183,9 @@ const App = () => {
           <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
           {menuOpen && (
             <div className="menu-dropdown">
-              <button>Sleep</button>
+              <button>Close Tabs</button>
               <button>Restart</button>
-              <button>Close</button>
+              <button>Shut Down</button>
             </div>
           )}
         </div>
