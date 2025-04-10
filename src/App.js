@@ -152,7 +152,7 @@ const App = () => {
                       <span>Education</span>
                     </div>
 
-                    <div className="shortcuts" onClick ={() => openWindow("explorer")}>
+                    <div className="shortcuts" onClick ={() => openWindow("projects")}>
                       <img src="projects-icon.png" alt="Projects" />
                       <span>Projects</span>
                     </div>
