@@ -24,10 +24,10 @@ const App = () => {
   const explorerRef = useRef(null);
 
   const [windows, setWindows] = useState([
-    {id: "profile", isOpen: false, ref: profileRef, zIndex: 1},
-    {id: "browser", isOpen: false, ref: browserRef, zIndex: 2},
-    {id: "console", isOpen: false, ref: consoleRef, zIndex: 3},
-    {id: "explorer", isOpen: false, ref: explorerRef, zIndex: 4},
+    {id: "contact", isOpen: false, ref: profileRef, zIndex: 1},
+    {id: "experience", isOpen: false, ref: browserRef, zIndex: 2},
+    {id: "education", isOpen: false, ref: consoleRef, zIndex: 3},
+    {id: "projects", isOpen: false, ref: explorerRef, zIndex: 4},
 
   ]);
 
