@@ -80,6 +80,7 @@ const App = () => {
           : win
       );
     });
+    console.log(windowId+" brought to front")
   };
 
   // Open a window and bring it to the front
@@ -119,6 +120,18 @@ const App = () => {
   /* ------------------------- center window function ------------------------- */
 
   const centerWindow = (windowId) => {
+    setWindows((prevWindows) => {
+      return prevWindows.map((win) => {
+        if (win.id === windowId && win.ref.current) {
+          win.ref.current.style.position = "absolute";
+          win.ref.current.style.left = "50%";
+          win.ref.current.style.top = "50%";
+          win.ref.current.style.transform = "translate(-50%, -50%)";
+          console.log(win.ref.current+" window moved")
+        }
+        return win;
+      });
+    });
     bringToFront(windowId);
   };
 
@@ -214,21 +227,21 @@ const App = () => {
           >
 
             {id === "contact" && (
-              <ProfileWindow
+              <ProfileWindow ref={ref}
                 onClose={() => closeWindow(id)}
                 zIndex={zIndex}
                 onFocus={() => bringToFront(id)}
               />
             )}
             {id === "experience" && (
-              <BrowserWindow
+              <BrowserWindow ref={ref}
                 onClose={() => closeWindow(id)}
                 zIndex={zIndex}
                 onFocus={() => bringToFront(id)}
               />
             )}
             {id === "education" && (
-              <ConsoleWindow
+              <ConsoleWindow ref={ref}
                 onClose={handleCloseConsole}
                 resetText={consoleReset}
                 zIndex={zIndex}
@@ -236,7 +249,7 @@ const App = () => {
               />
             )}
             {id === "projects" && (
-              <FileExplorer
+              <FileExplorer ref={ref}
                 onClose={() => closeWindow(id)}
                 zIndex={zIndex}
                 onFocus={() => bringToFront(id)}
@@ -276,9 +289,9 @@ const App = () => {
             <button onClick={() => {setWindows(prev => prev.map(win => ({ ...win, isOpen: false })));}}>Close Tabs</button>
 
             <button onClick={() => {
-            closeMenu()
-            setWindows(prev => prev.map(win => ({ ...win, isOpen: false })));
-            setBooting(true)}}
+              closeMenu()
+              setWindows(prev => prev.map(win => ({ ...win, isOpen: false })));
+              setBooting(true)}}
             >Restart
             </button>
 
