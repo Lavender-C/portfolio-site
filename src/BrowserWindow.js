@@ -1,7 +1,9 @@
 import React, { forwardRef, useState, useRef, useEffect} from "react";
 import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArrowRight, IconSquareRoundedPlusFilled } from '@tabler/icons-react';
+import { AnimatePresence, motion } from "framer-motion";
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
+
 
 const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
 
@@ -9,6 +11,7 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
   const topBarRef = useRef(null);
 
   const [activeTab, setActiveTab] = useState("home");
+  const [direction, setDirection] = useState(-1);
 
   /* -------------------------------------------------------------------------- */
   /*                                POST CONTENT                                */
@@ -171,13 +174,19 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
         <div className="browser-tabbar">
           <button 
             className={`tab-button ${activeTab === "home" ? "active" : ""}`} 
-            onClick={() => setActiveTab("home")}
+            onClick={() => {
+              setDirection(-1);
+              setActiveTab("home");
+            }}
           >
             Home
           </button>
           <button 
             className={`tab-button ${activeTab === "experience" ? "active" : ""}`} 
-            onClick={() => setActiveTab("experience")}
+            onClick={() => {
+              setDirection(1);
+              setActiveTab("experience");
+            }}
           >
             Experience
           </button>
@@ -189,8 +198,18 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
 
         {/* --------------------------------- Content -------------------------------- */}
 
-        <div className="experience-content">
-          {renderContent()}
+        <div className="experience-content" style={{ position: "relative", overflow: "hidden", flex: 1 }}>
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={activeTab}
+              initial={{ x: direction * 800, opacity: 0, position: "absolute", width: "100%" }}
+              animate={{ x: 0, opacity: 1, position: "absolute", width: "100%" }}
+              exit={{ x: direction * 800, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {renderContent()}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { IconWifi, IconBatteryCharging } from '@tabler/icons-react';
+import { AnimatePresence, motion} from "framer-motion";
 import ProfileWindow from './ProfileWindow';
 import BrowserWindow from './BrowserWindow';
 import ConsoleWindow from './ConsoleWindow';
@@ -14,6 +15,10 @@ const App = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [menuHovered, setMenuHovered] = useState(false);
+  const menuTimeout = useRef(null);
+
   const [consoleReset, setConsoleReset] = useState(false); //resets the console animation on close
   const [time, setTime] = useState(new Date()); //for taskbar clock
 
@@ -31,22 +36,28 @@ const App = () => {
 
   ]);
 
-
   useEffect(() => {
+    if (!booting) return;
+  
+    setProgress(0);
+    setFadeOut(false);
+  
     const interval = setInterval(() => {
-        setProgress((oldProgress) => {
-            if (oldProgress >= 100) {
-                clearInterval(interval);
-                setFadeOut(true);
-                setTimeout(() => setBooting(false), 1500);
-                return 100;
-            }
-            return oldProgress + 10;
-        });
-    }, 200);
-
+      if (menuTimeout.current) clearTimeout(menuTimeout.current);
+      setProgress((oldProgress) => {
+        if (oldProgress >= 100) {
+          clearInterval(interval);
+          setFadeOut(true);
+          setTimeout(() => setBooting(false), 1500);
+          return 100;
+        }
+        return oldProgress + 20;
+      });
+      clearTimeout(menuTimeout.current)
+    }, 300);
+  
     return () => clearInterval(interval);
-}, []);
+  }, [booting]);
 
 
   useEffect(() => {
@@ -64,7 +75,7 @@ const App = () => {
     setWindows((prevWindows) => {
       const maxZ = Math.max(...prevWindows.map((win) => win.zIndex));
       return prevWindows.map((win) =>
-        win.id === windowId && win.zIndex !== maxZ // Only update if necessary
+        win.id === windowId && win.zIndex !== maxZ
           ? { ...win, zIndex: maxZ + 1 }
           : win
       );
@@ -93,6 +104,7 @@ const App = () => {
   };
 
   /* ----------------------------- console events ----------------------------- */
+
   const handleOpenConsole = () => {
     openWindow("education");
     setConsoleReset(false);
@@ -107,18 +119,40 @@ const App = () => {
   /* ------------------------- center window function ------------------------- */
 
   const centerWindow = (windowId) => {
-    setWindows((prevWindows) => {
-      return prevWindows.map((win) => {
-        if (win.id === windowId && win.ref.current) {
-          win.ref.current.style.position = "absolute";
-          win.ref.current.style.left = "50%";
-          win.ref.current.style.top = "50%";
-          win.ref.current.style.transform = "translate(-50%, -50%)";
-        }
-        return win;
-      });
-    });
     bringToFront(windowId);
+  };
+
+  const closeTab = () => {
+    window.opener = null;
+    window.open("", "_self");
+    window.close();
+  };
+
+  /* -------------------------- menu button functions ------------------------- */
+
+  const openMenu = () => {
+    setMenuOpen(true);
+    setMenuVisible(true);
+    if (menuTimeout.current) clearTimeout(menuTimeout.current);
+    scheduleMenuClose()
+  };
+  
+  const closeMenu = () => {
+    setMenuVisible(false);
+
+    setTimeout(() => setMenuOpen(false), 300);
+    clearTimeout(menuTimeout.current)
+  };
+  
+  const scheduleMenuClose = () => {
+    if (menuTimeout.current) clearTimeout(menuTimeout.current);
+    menuTimeout.current = setTimeout(() => {
+      setMenuHovered(false);
+      if (!menuHovered) {
+        closeMenu();
+      }
+      
+    }, 2500);
   };
 
   return (
@@ -158,19 +192,60 @@ const App = () => {
                     </div>
                   </div>
 
-
     {/* -------------------------- window events -------------------------- */}
-    
-    {windows.map(({ id, isOpen, ref, zIndex }) =>
-      isOpen && (
-        <div key={id}>  
-          {id === "contact" && <ProfileWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)} />}
-          {id === "experience" && <BrowserWindow ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
-          {id === "education" && <ConsoleWindow ref={ref} onClose={handleCloseConsole} resetText={consoleReset} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
-          {id === "projects" && <FileExplorer ref={ref} onClose={() => closeWindow(id)} zIndex={zIndex} onFocus={() => bringToFront(id)}/>}
-        </div>
-      )
-    )}
+
+    <AnimatePresence>
+      {windows.map(({ id, isOpen, ref, zIndex }) =>
+        isOpen ? (
+          <motion.div
+            key={id}
+            ref={ref}
+            initial={{ scale: .95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1}}
+            exit={{ scale: .9, opacity: 0 }}
+            transition={{ opacity: 1, duration: .1, stiffness: 300, dampning:10, type: "spring", ease:"easeIn"}}
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex,
+            }}
+          >
+
+            {id === "contact" && (
+              <ProfileWindow
+                onClose={() => closeWindow(id)}
+                zIndex={zIndex}
+                onFocus={() => bringToFront(id)}
+              />
+            )}
+            {id === "experience" && (
+              <BrowserWindow
+                onClose={() => closeWindow(id)}
+                zIndex={zIndex}
+                onFocus={() => bringToFront(id)}
+              />
+            )}
+            {id === "education" && (
+              <ConsoleWindow
+                onClose={handleCloseConsole}
+                resetText={consoleReset}
+                zIndex={zIndex}
+                onFocus={() => bringToFront(id)}
+              />
+            )}
+            {id === "projects" && (
+              <FileExplorer
+                onClose={() => closeWindow(id)}
+                zIndex={zIndex}
+                onFocus={() => bringToFront(id)}
+              />
+            )}
+          </motion.div>
+        ) : null
+      )}
+    </AnimatePresence>
 
 
       {/* -------------------------------------------------------------------------- */}
@@ -178,17 +253,40 @@ const App = () => {
       {/* -------------------------------------------------------------------------- */}
 
       <div className ="taskbar">
-        {/* Menu Button */}
-        <div className ="taskbar-menu">
-          <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
-          {menuOpen && (
-            <div className="menu-dropdown">
-              <button>Close Tabs</button>
-              <button>Restart</button>
-              <button>Shut Down</button>
-            </div>
-          )}
-        </div>
+
+      <div className="taskbar-menu">
+        <button
+          onClick={openMenu}
+        >
+          ☰
+        </button>
+
+        {menuOpen && (
+          <div
+            className={`menu-dropdown ${!menuVisible ? "hidden" : ""}`}
+            onMouseEnter={() => {
+              setMenuHovered(true);
+              clearTimeout(menuTimeout.current);
+              setMenuHovered(false);
+            }}
+            onMouseLeave={() => {
+              scheduleMenuClose()
+            }}
+          >
+            <button onClick={() => {setWindows(prev => prev.map(win => ({ ...win, isOpen: false })));}}>Close Tabs</button>
+
+            <button onClick={() => {
+            closeMenu()
+            setWindows(prev => prev.map(win => ({ ...win, isOpen: false })));
+            setBooting(true)}}
+            >Restart
+            </button>
+
+            <button onClick={closeTab}>Shut Down</button>
+          </div>
+        )}
+      </div>
+
 
         {/* ----------------------------- active programs ---------------------------- */}
 

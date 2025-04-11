@@ -27,7 +27,7 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
     - [x] taskbar programs (click to focus window)
     - [x] file explorer breadcrumb (click to return to projects folder)
 - [x] cool desktop background
-- [ ] menu buttons (sleep, restart, close ??)
+- [x] menu buttons (sleep, restart, close ??)
 - [ ] draw icons
     - [x] image files
     - [x] folders
@@ -48,11 +48,7 @@ FIXES
 <i>After Rollout</i>
 - animations for opening/closing windows and menus
 - unit tests
-- phone view
-- full anim for console window
 - find or make a sick background for the desktop
-
-
 
 <i>Extra Juicy Bits</i>
 - Animation for PFP that follows the mouse (only on computers?)
