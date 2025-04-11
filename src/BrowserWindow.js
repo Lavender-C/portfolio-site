@@ -3,6 +3,7 @@ import { IconX, IconSearch, IconHomeFilled, IconRefresh, IconArrowLeft, IconArro
 import { AnimatePresence, motion } from "framer-motion";
 import ExperiencePost from "./ExperiencePost";
 import "./BrowserWindow.css";
+import { Autour_One } from "next/font/google";
 
 
 const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
@@ -198,10 +199,11 @@ const BrowserWindow = forwardRef(({ onClose, zIndex, onFocus}, ref) => {
 
         {/* --------------------------------- Content -------------------------------- */}
 
-        <div className="experience-content" style={{ position: "relative", overflow: "hidden", flex: 1 }}>
+        <div className="experience-content">
           <AnimatePresence initial={false}>
             <motion.div
               key={activeTab}
+              className="experience-content"
               initial={{ x: direction * 800, opacity: 0, position: "absolute", width: "100%" }}
               animate={{ x: 0, opacity: 1, position: "absolute", width: "100%" }}
               exit={{ x: direction * 800, opacity: 0 }}
