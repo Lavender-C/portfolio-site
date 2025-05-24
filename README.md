@@ -2,7 +2,11 @@
 
 Hi! This is my UI project. I am experimenting with React.JS
 
-I wanted my portfolio site to embody my childhood playing on computers in the 2000's with the retro OS-es and browsers that I'm nostalgic for.
+I wanted my portfolio site to embody my childhood playing on computers in the 2000's with the retro OS-es and browsers that I'm nostalgic for.<br>
+<center>
+<img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fportfolio-site-rose-six.vercel.app%2F&up_message=live!&up_color=%2378c48b&down_color=%23a1665d&style=for-the-badge&labelColor=%233f3c52&link=https%3A%2F%2Fportfolio-site-rose-six.vercel.app%2F">
+</center>
+
 
 ### TODO:
 
