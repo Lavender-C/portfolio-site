@@ -209,8 +209,12 @@ It's very late, I got too locked in and now its 4am, so I'll wrap this up for no
 
 <h3>5/24/25...</h3>
 
-Hi it's been way too long since I pushed these changes. I feel like once I got over the big hump of getting this thing up and running my adrenaline fizzled out a bit. But I also kind of feel like its's a good thing? I'm quite happy with the state that it's in now and I don't see myself making any more <i>huge</i> changes anytime soon.
+Hi it's been way too long since I pushed these changes. I feel like once I got over the big hump of getting this thing up and running my adrenaline fizzled out a bit. But I also kind of feel like its's a good thing? I'm quite happy with the state that it's in now and I don't see myself making any more <i>huge</i> changes anytime soon. I spent a lot of time experimenting with different animations but I couldn't really get anything I liked a whole lot to work and I felt like I was kinda doing too much so I deleted a lot of it. Maybe if inspiration strikes I might come back to it but I want to get these File Explorer changes up.
 
 Quick recap
 - Fixed some spacing on the Profile Window elements
-- Added some more animations
+- Added some more animations to the File Explorer
+- Fixed profile image sizing on Experience Page
+- New icons for videos + text files in the FE
+- New browser icon (still not sold)
+- Some other things I dont remember, will update once I do lol
