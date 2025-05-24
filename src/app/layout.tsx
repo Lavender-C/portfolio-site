@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import {Space_Mono} from 'next/font/google'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
     title: 'Lavender Calhoun',
