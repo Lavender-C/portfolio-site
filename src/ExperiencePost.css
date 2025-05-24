@@ -6,8 +6,10 @@
     margin: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5%;
+    margin-bottom: 2rem;
     max-width: 90%;
+    will-change: transform;
+    transition: transform 0.3s ease;
 }
 
 .profile-image {
@@ -49,6 +51,7 @@
 
 .like-button {
     min-width: max-content;
+    max-height: 35px;
     background: var(--primary);
     border: none;
     padding: 5px 10px;

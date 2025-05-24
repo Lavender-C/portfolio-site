@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, forwardRef } from "react";
 import { IconX } from "@tabler/icons-react";
 import styles from "./ConsoleWindow.module.css";
-import Typewriter from 'react-ts-typewriter';
+import Typewriter from 'typewriter-effect';
 
 
 interface ConsoleWindowProps {
@@ -68,20 +68,27 @@ const ConsoleWindow = forwardRef<HTMLDivElement, ConsoleWindowProps>(({ onClose,
             <div className={styles.consoleContent}>
                 User@desktop:~$ cat education.txt<br/> <br/>
                 <Typewriter
-                            speed={0}
-                            text={`B.S. in Computer Science from Wayne State University
-                                - Graduated: May 2024, GPA 3.68 (cum laude)
+                    options={{
+                        autoStart:true,
+                        delay:10,
+                        strings:`B.S. in Computer Science from Wayne State University
+                            - Graduated: May 2024, GPA 3.68 (cum laude)
 
-                                Relevant Courses: 
-                                    - Data Structures and Algorithms
-                                    - Web Development
-                                    - Database Management
+                            Relevant Courses: 
+                            - Data Structures and Algorithms
+                            - Web Development
+                            - Database Management
+                            - Human-Computer Interaction
+                            - Mobile App Development
+                            - Software Engineering
 
-                                Achievements: 
-                                - Society of Computer Developers Member
-                                - 4 time Dean's List student
-                                - 6 time Vocal Music Performance Grant Awardee`}
-                            />
+                            Achievements: 
+                            - Society of Computer Developers Member
+                            - 4 time Dean's List student
+                            - 6 time Vocal Music Performance Grant Awardee`
+
+                    }}
+                />
                 
             </div>
         </div>

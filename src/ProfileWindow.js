@@ -3,6 +3,7 @@ import { IconX } from '@tabler/icons-react';
 import './ProfileWindow.css';
 import "./global.css"; 
 import pfp from '../public/persona headshot.png'
+import { motion } from 'framer-motion';
 
 const ProfileWindow = forwardRef(({ onClose, zIndex, onClick, onFocus}, ref) => {
 
@@ -85,7 +86,16 @@ const ProfileWindow = forwardRef(({ onClose, zIndex, onClick, onFocus}, ref) => 
                 
                 {/* ------------------------------ resume button ----------------------------- */}
                 <br />
-                <a href={'/resume_F25.pdf'}> <button className = "resume-button">resume</button> </a>
+                <a href={'/resume_F25.pdf'}> 
+                    <motion.button 
+                        className = "resume-button"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95}}
+                        transition={{type: 'spring', stiffness: 500, damping: 10, duration: .1}} 
+                        >
+                            resume
+                    </motion.button> 
+                </a>
             </div>
         </div>
     );

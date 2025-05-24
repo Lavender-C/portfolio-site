@@ -30,7 +30,7 @@ const App = () => {
 
   const [windows, setWindows] = useState([
     {id: "contact", isOpen: false, ref: profileRef, zIndex: 1},
-    {id: "experience", isOpen: false, ref: browserRef, zIndex: 2},
+    {id: "experience", isOpen: true, ref: browserRef, zIndex: 2},
     {id: "education", isOpen: false, ref: consoleRef, zIndex: 3},
     {id: "projects", isOpen: false, ref: explorerRef, zIndex: 4},
 
