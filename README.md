@@ -16,7 +16,7 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 - [x] ~~Photo Gallery~~ File Explorer + Photo Gallery for projects
     - [x] take pictures for projects
     - [x] solve small image problem
-- [ ] header and other decorations to the experience "website"
+- [x] header and other decorations to the experience "website"
     - [x] tidy up search bar icons
     - [x] add text to home page
     - [x] make liked buttons pink
@@ -36,8 +36,8 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
     - [x] education
     - [x] projects
     - [ ] site favicon
-    - [ ] video
-- [ ] draw experience banner
+    - [x] video
+    - [x] text files
 
 FIXES
 - [x] windows should come to top when corresponding top bar is dragged
@@ -46,7 +46,7 @@ FIXES
 - [x] windows should open in the center
 
 <i>After Rollout</i>
-- animations for opening/closing windows and menus
+- [x] animations for opening/closing windows and menus
 - unit tests
 - find or make a sick background for the desktop
 
@@ -183,7 +183,8 @@ Honestly this might bleed into Monday depending on how the creative juices flow 
 </details>
 
 
-<h3>4/9/25</h3>
+<details>
+<summary> <h3>4/9/25</h3> </summary>
 
 Hi! It's been quite a while since I last added an entry to the README, but that doesn't mean I haven't been hitting the grind! The site is live and the update process is very easy. I am very happy with hosting on Vercel. Because the site was live I showed it to a lot of my friends and family and they gave me some feedback so here is what I changed:
 
@@ -204,3 +205,12 @@ I think I'm almost done with all of the functions for the app. After that I thin
 If you are viewing this coming from my website, thank you so much for checking out what I've worked on so far!! It has been so much fun to build a UI web project of my own since during most projects in school I had to work other features, so this is really my chance to let loose and express myself. If you have feedback or run into any problems, please make use of the Issues tab.
 
 It's very late, I got too locked in and now its 4am, so I'll wrap this up for now. <3
+</details>
+
+<h3>5/24/25...</h3>
+
+Hi it's been way too long since I pushed these changes. I feel like once I got over the big hump of getting this thing up and running my adrenaline fizzled out a bit. But I also kind of feel like its's a good thing? I'm quite happy with the state that it's in now and I don't see myself making any more <i>huge</i> changes anytime soon.
+
+Quick recap
+- Fixed some spacing on the Profile Window elements
+- Added some more animations
