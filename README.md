@@ -19,6 +19,7 @@ I wanted my portfolio site to embody my childhood playing on computers in the 20
 
 <details>
 <summary> <i>High Priority, 13/14</i> </summary>
+
 - [x] Fix the main content window so its bigger
 - [x] Organize buttons/links on profile window
 - [x] Fix resume PDF button
