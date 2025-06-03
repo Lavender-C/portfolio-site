@@ -24,6 +24,7 @@ export default function RootLayout({
         <html lang="en" className={spaceMono.className}>
             <body>
                 <div id="root">{children}</div>
+                <Analytics />
             </body>
         </html>
 
